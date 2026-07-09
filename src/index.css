@@ -24,7 +24,7 @@
     letter-spacing: -0.01em;
   }
   ::selection {
-    background: #b8925a;
+    background: #e8e2d3;
     color: #0a0a0a;
   }
 }
@@ -44,7 +44,7 @@
   }
   .rule {
     height: 1px;
-    background: linear-gradient(to right, rgba(184, 146, 90, 0), rgba(184, 146, 90, 0.35), rgba(184, 146, 90, 0));
+    background: linear-gradient(to right, rgba(232, 226, 211, 0), rgba(232, 226, 211, 0.35), rgba(232, 226, 211, 0));
   }
   .hairline {
     border-color: rgba(240, 235, 224, 0.08);
@@ -91,5 +91,5 @@
   background: #1a1917;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8f6d3f;
+  background: #6b6558;
 }

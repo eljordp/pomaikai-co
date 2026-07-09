@@ -17,12 +17,12 @@ export default function CtaBand({ eyebrow, title, href, ctaLabel, external }: Pr
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(700px 320px at 50% 100%, rgba(184,146,90,0.11), transparent 60%)",
+            "radial-gradient(700px 320px at 50% 100%, rgba(232,226,211,0.06), transparent 60%)",
         }}
       />
       <div className="container-editorial relative text-center">
         {eyebrow && (
-          <p className="text-[10px] uppercase tracking-[0.35em] text-wheat mb-8">{eyebrow}</p>
+          <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-8">{eyebrow}</p>
         )}
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
@@ -37,7 +37,7 @@ export default function CtaBand({ eyebrow, title, href, ctaLabel, external }: Pr
           <a
             href={href}
             {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
-            className="group inline-flex items-center gap-3 text-ink bg-wheat px-8 py-4 text-[11px] uppercase tracking-[0.24em] hover:bg-wheatLight transition-colors duration-300"
+            className="group inline-flex items-center gap-3 text-ink bg-cream px-8 py-4 text-[11px] uppercase tracking-[0.24em] hover:bg-bone transition-colors duration-300"
           >
             {ctaLabel}
             <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />

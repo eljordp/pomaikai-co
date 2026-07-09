@@ -7,8 +7,7 @@ type Props = {
 };
 
 /**
- * PŌMAIKA'I wordmark with a small gold wheat-glyph.
- * Uses Instrument Serif for the mark, kept restrained.
+ * PŌMAIKA'I wordmark. Warm-cream glyph — no gold anywhere.
  */
 export default function Wordmark({ size = "sm", showTag = false, className = "" }: Props) {
   const wordSize =
@@ -27,7 +26,7 @@ export default function Wordmark({ size = "sm", showTag = false, className = "" 
         viewBox="0 0 32 32"
         fill="none"
         aria-hidden
-        className="text-wheat transition-transform duration-500 ease-editorial group-hover:rotate-6"
+        className="text-cream transition-transform duration-500 ease-editorial group-hover:rotate-6"
       >
         <g stroke="currentColor" strokeWidth="1.4" strokeLinecap="round">
           <path d="M16 4 L16 28" />
@@ -40,10 +39,10 @@ export default function Wordmark({ size = "sm", showTag = false, className = "" 
         </g>
       </svg>
       <span className={`font-serif ${wordSize} tracking-tight text-cream leading-none`}>
-        PŌMAIKA<span className="text-wheat">&rsquo;</span>I
+        PŌMAIKA<span className="text-cream/60">&rsquo;</span>I
       </span>
       {showTag && (
-        <span className="hidden md:inline text-[10px] tracking-[0.3em] text-mist uppercase pl-3 border-l hairline-strong border-l-[color:var(--tw-border-opacity)]">
+        <span className="hidden md:inline text-[10px] tracking-[0.3em] text-mist uppercase pl-3 border-l hairline-strong">
           Ecosystem Co.
         </span>
       )}

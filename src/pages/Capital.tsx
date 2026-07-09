@@ -3,6 +3,7 @@ import PageIntro from "../components/layout/PageIntro";
 import PillarList from "../components/layout/PillarList";
 import StepList from "../components/layout/StepList";
 import CtaBand from "../components/layout/CtaBand";
+import IGTile from "../components/layout/IGTile";
 
 export default function Capital() {
   return (
@@ -11,10 +12,10 @@ export default function Capital() {
         eyebrow="Capital"
         title={
           <>
-            Capital. Funding. <span className="italic text-wheatLight">Financial freedom.</span>
+            Capital. Funding. <span className="italic text-cream">Freedom.</span>
           </>
         }
-        subtitle="0% APR funding. Business loans. Lines of credit. Wealth strategies. Fuel your growth with capital solutions built around how founders actually operate."
+        subtitle="0% APR funding. Business loans. Lines of credit. Wealth strategy."
       />
 
       <PillarList
@@ -25,55 +26,99 @@ export default function Capital() {
             index: "01",
             title: "0% APR Funding",
             meta: "Up to $150K",
-            body: "Access up to $150K in 0% APR options. Structured so founders can build inventory, hire, or launch without the drag of interest in year one.",
+            body: "Build inventory, hire, or launch without the drag of interest in year one.",
           },
           {
             index: "02",
             title: "Business Loans",
             meta: "Fast approvals",
-            body: "Fast approvals for startups and established businesses. Underwritten by the actual shape of your operation, not just your credit file.",
+            body: "Underwritten by the shape of your operation, not just your credit file.",
           },
           {
             index: "03",
             title: "Lines of Credit",
             meta: "Flexible capital",
-            body: "Flexible capital for cash flow and expansion. Draw when the opportunity is real, sit tight when it isn't.",
+            body: "Draw when the opportunity is real, sit tight when it isn't.",
           },
           {
             index: "04",
             title: "Tax Strategy",
             meta: "Wealth architecture",
-            body: "Keep more of what you earn. Entity structure, retirement vehicles, and quarterly planning built alongside your CPA.",
+            body: "Keep more of what you earn. Built alongside your CPA.",
           },
         ]}
       />
 
+      {/* IG-STYLE FUNDING WINS */}
+      <section className="py-32 md:py-44 border-t hairline bg-obsidian">
+        <div className="container-editorial">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-14 mb-16 md:mb-24 items-end">
+            <div className="md:col-span-4">
+              <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-6">
+                From the room
+              </p>
+            </div>
+            <div className="md:col-span-8">
+              <h2 className="font-serif text-display-md text-cream max-w-[18ch] text-balance leading-[1.02]">
+                Capital that moves.
+              </h2>
+            </div>
+          </div>
+
+          {/* PLACEHOLDER: mock IG-style tiles. Real funding case studies TBD. */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <IGTile
+              index={0}
+              title="Approved. 0% APR."
+              caption="Inventory funded before the season broke."
+              badge="Funding"
+            />
+            <IGTile
+              index={1}
+              title="Line of credit live."
+              caption="Cash flow flexed. Ops kept humming."
+              badge="LOC"
+            />
+            <IGTile
+              index={2}
+              title="Structure locked."
+              caption="Entity, retirement, quarterly plan. All in."
+              badge="Strategy"
+            />
+          </div>
+
+          <p className="mt-12 text-[10px] uppercase tracking-[0.3em] text-mist">
+            Real numbers stay private · reference calls on request
+          </p>
+        </div>
+      </section>
+
       <StepList
-        eyebrow="Funding roadmap"
-        heading="From application to approved, without the guesswork."
+        eyebrow="Roadmap"
+        heading="From application to approved."
         steps={[
           {
             title: "Qualify",
-            body: "We review your business profile, financial picture, and goals. No hard pulls until we know a path exists.",
+            body: "No hard pulls until we know a path exists.",
           },
           {
             title: "Strategize",
-            body: "We build your funding plan across products and lenders. You see the full stack before anything is submitted.",
+            body: "See the full stack before anything is submitted.",
           },
           {
             title: "Secure",
-            body: "Applications go out, approvals come back. We handle the paperwork so you stay focused on the business.",
+            body: "We handle paperwork. You stay focused on the business.",
           },
           {
             title: "Grow",
-            body: "Capital in hand, we help you deploy it with the same discipline it took to secure it. Scale with confidence.",
+            body: "Deploy capital with the discipline it took to secure it.",
           },
         ]}
       />
 
       <CtaBand
         eyebrow="Get started"
-        title="Schedule your free capital strategy call."
+        title="Schedule your capital strategy call."
         ctaLabel="Book the call"
         href="mailto:hello@pomaikai.co?subject=Capital%20Strategy%20Call"
       />

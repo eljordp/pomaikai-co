@@ -15,7 +15,7 @@ export default function PageIntro({ eyebrow, title, subtitle }: Props) {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(1200px 500px at 20% 20%, rgba(184,146,90,0.09), transparent 60%), radial-gradient(900px 400px at 80% 60%, rgba(184,146,90,0.05), transparent 60%)",
+            "radial-gradient(1200px 500px at 20% 20%, rgba(232,226,211,0.05), transparent 60%), radial-gradient(900px 400px at 80% 60%, rgba(232,226,211,0.03), transparent 60%)",
         }}
       />
       <div className="container-editorial relative">
@@ -23,7 +23,7 @@ export default function PageIntro({ eyebrow, title, subtitle }: Props) {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.19, 1, 0.22, 1] }}
-          className="text-[10px] uppercase tracking-[0.35em] text-wheat mb-8"
+          className="text-[10px] uppercase tracking-[0.35em] text-bone mb-8"
         >
           {eyebrow}
         </motion.p>

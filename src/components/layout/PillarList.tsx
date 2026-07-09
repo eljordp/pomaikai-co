@@ -27,7 +27,7 @@ export default function PillarList({
       <div className="container-editorial">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-14 mb-20 md:mb-28">
           <div className="md:col-span-4">
-            <p className="text-[10px] uppercase tracking-[0.35em] text-wheat mb-6">{eyebrow}</p>
+            <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-6">{eyebrow}</p>
           </div>
           <div className="md:col-span-8">
             <h2 className="font-serif text-display-md text-cream max-w-[18ch] text-balance leading-[1.02]">
@@ -50,11 +50,11 @@ export default function PillarList({
                 <span className="font-serif italic text-mist text-lg">{p.index}</span>
               </div>
               <div className="col-span-10 md:col-span-4">
-                <h3 className="font-serif text-3xl md:text-5xl text-cream leading-[1.02] tracking-tight group-hover:text-wheat transition-colors duration-500">
+                <h3 className="font-serif text-3xl md:text-5xl text-cream leading-[1.02] tracking-tight group-hover:text-cream/70 transition-colors duration-500">
                   {p.title}
                 </h3>
                 {p.meta && (
-                  <p className="mt-4 text-[10px] uppercase tracking-[0.3em] text-wheatLight/80">
+                  <p className="mt-4 text-[10px] uppercase tracking-[0.3em] text-bone/80">
                     {p.meta}
                   </p>
                 )}

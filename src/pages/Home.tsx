@@ -1,26 +1,28 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PageTransition from "../components/layout/PageTransition";
+import PillBadge from "../components/layout/PillBadge";
+import MetricsStrip from "../components/layout/MetricsStrip";
 
 const CATEGORIES = [
-  { label: "Websites", meta: "AI Systems", href: "/marketing" },
-  { label: "Growth", meta: "Marketing", href: "/marketing" },
-  { label: "0% Funding", meta: "Capital", href: "/capital" },
-  { label: "Coaching", meta: "Mentorship", href: "/coaching" },
-  { label: "Learning", meta: "Academy", href: "/academy" },
-  { label: "Partners", meta: "Advisory", href: "/partners" },
+  { label: "Marketing", meta: "Websites · Content · Ads", href: "/marketing" },
+  { label: "Capital", meta: "0% Funding · Strategy", href: "/capital" },
+  { label: "Coaching", meta: "Mindset · Mentorship", href: "/coaching" },
+  { label: "Academy", meta: "Courses · Community", href: "/academy" },
+  { label: "Partners", meta: "Advisory · Inner Circle", href: "/partners" },
+  { label: "Membership", meta: "$500/mo · All-in", href: "/partners" },
 ];
 
-const LOGOS = [
-  "Waimea Lamb Co",
-  "Kayy",
-  "Downes Grounds",
-  "ReesVIP",
-  "LP5",
-  "Sereno",
-  "Taro Stewards",
-];
+const CHIPS = [
+  { label: "Website", to: "/marketing" },
+  { label: "AI Systems", to: "/marketing" },
+  { label: "Marketing", to: "/marketing" },
+  { label: "Funding", to: "/capital" },
+  { label: "Coaching", to: "/coaching" },
+  { label: "Just Curious", to: "/academy" },
+] as const;
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -28,13 +30,13 @@ export default function Home() {
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
   const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.4]);
 
-  const [form, setForm] = useState({ industry: "", challenge: "", revenue: "" });
-  const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
+  const [picked, setPicked] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // PLACEHOLDER: Wire up to Formspree or real endpoint later.
-    setSubmitted(true);
+  const handlePick = (chip: (typeof CHIPS)[number]) => {
+    setPicked(chip.label);
+    // Small delay so the pill highlight lands before route change.
+    window.setTimeout(() => navigate(chip.to), 320);
   };
 
   return (
@@ -45,15 +47,13 @@ export default function Home() {
           style={{ y: heroY, opacity: heroOpacity }}
           className="absolute inset-0 pointer-events-none"
         >
-          {/* Ambient gradient — matte black + wheat glow */}
           <div
             className="absolute inset-0"
             style={{
               background:
-                "radial-gradient(1400px 700px at 15% 15%, rgba(184,146,90,0.14), transparent 60%), radial-gradient(1200px 600px at 90% 90%, rgba(184,146,90,0.08), transparent 65%), linear-gradient(180deg, #0a0a0a 0%, #0a0a0a 60%, #0e0d0b 100%)",
+                "radial-gradient(1400px 700px at 15% 15%, rgba(232,226,211,0.06), transparent 60%), radial-gradient(1200px 600px at 90% 90%, rgba(232,226,211,0.04), transparent 65%), linear-gradient(180deg, #0a0a0a 0%, #0a0a0a 60%, #0e0d0b 100%)",
             }}
           />
-          {/* Horizon line */}
           <div className="absolute left-0 right-0 top-[62%] h-px rule opacity-60" />
         </motion.div>
 
@@ -65,14 +65,15 @@ export default function Home() {
               </p>
             </div>
             <div className="md:col-span-11">
-              <motion.p
+              <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
-                className="text-[10px] uppercase tracking-[0.35em] text-wheat mb-8"
+                className="mb-10 flex flex-wrap items-center gap-3"
               >
-                The founder ecosystem
-              </motion.p>
+                <PillBadge>Pomaika&rsquo;i Ecosystem</PillBadge>
+                <PillBadge>Big Island Based</PillBadge>
+              </motion.div>
 
               <motion.h1
                 initial={{ opacity: 0, y: 24 }}
@@ -82,17 +83,16 @@ export default function Home() {
               >
                 Build your business.
                 <br />
-                <span className="italic text-wheatLight">Build abundance.</span>
+                <span className="italic text-cream">Build abundance.</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.3, ease: [0.19, 1, 0.22, 1] }}
-                className="mt-12 md:mt-16 text-lg md:text-xl text-mist max-w-[46ch] leading-[1.55] text-pretty"
+                className="mt-12 md:mt-16 text-lg md:text-xl text-mist max-w-[42ch] leading-[1.55] text-pretty"
               >
-                The all-in-one ecosystem for founders ready to scale with strategy,
-                systems, and support. One roof. Every lever.
+                One roof. Every lever. Founders scaling with strategy, systems, and support.
               </motion.p>
 
               <motion.div
@@ -103,16 +103,16 @@ export default function Home() {
               >
                 <a
                   href="#survey"
-                  className="group inline-flex items-center gap-3 text-ink bg-wheat px-7 py-4 text-[11px] uppercase tracking-[0.24em] hover:bg-wheatLight transition-colors duration-300"
+                  className="group inline-flex items-center gap-3 text-ink bg-cream px-7 py-4 text-[11px] uppercase tracking-[0.24em] hover:bg-bone transition-colors duration-300"
                 >
-                  Take the Growth Survey
+                  Start Here
                   <ArrowDown size={15} className="group-hover:translate-y-0.5 transition-transform duration-300" />
                 </a>
                 <a
                   href="#ecosystem"
-                  className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.24em] text-cream/85 hover:text-wheat transition-colors duration-300"
+                  className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.24em] text-cream/85 hover:text-cream transition-colors duration-300 underline underline-offset-8 decoration-cream/20 hover:decoration-cream/70"
                 >
-                  Explore the ecosystem
+                  See the Ecosystem
                   <ArrowUpRight size={15} />
                 </a>
               </motion.div>
@@ -121,7 +121,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ECOSYSTEM CATEGORIES — hairline list, not cards */}
+      {/* METRICS STRIP — honest only */}
+      <MetricsStrip />
+
+      {/* ECOSYSTEM CATEGORIES */}
       <section id="ecosystem" className="relative border-t hairline">
         <div className="container-editorial">
           <div className="grid grid-cols-1 md:grid-cols-12 py-8 md:py-10 items-center border-b hairline">
@@ -144,7 +147,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: i * 0.05, ease: [0.19, 1, 0.22, 1] }}
                 className="group py-10 md:py-16 px-4 md:px-6 border-r border-b hairline md:border-b-0 last:border-r-0 flex flex-col justify-between min-h-[180px] md:min-h-[220px] hover:bg-obsidian/60 transition-colors duration-500"
               >
-                <span className="text-[10px] uppercase tracking-[0.28em] text-mist group-hover:text-wheat transition-colors duration-500">
+                <span className="text-[10px] uppercase tracking-[0.28em] text-mist group-hover:text-cream transition-colors duration-500">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
@@ -161,211 +164,51 @@ export default function Home() {
         </div>
       </section>
 
-      {/* GROWTH SURVEY */}
+      {/* SIMPLIFIED SURVEY — one question, chips */}
       <section id="survey" className="relative py-32 md:py-48 border-t hairline overflow-hidden">
         <div
           aria-hidden
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(900px 400px at 80% 0%, rgba(184,146,90,0.09), transparent 60%)",
+              "radial-gradient(900px 400px at 80% 0%, rgba(232,226,211,0.04), transparent 60%)",
           }}
         />
         <div className="container-editorial relative">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-14 md:gap-20">
-            <div className="md:col-span-5">
-              <p className="text-[10px] uppercase tracking-[0.35em] text-wheat mb-8">
-                Growth Survey
-              </p>
-              <h2 className="font-serif text-display-md text-cream text-balance leading-[1.02]">
-                Where are you in your <span className="italic text-wheatLight">growth journey?</span>
-              </h2>
-              <p className="mt-10 text-mist text-lg leading-[1.6] max-w-[46ch]">
-                Three questions. A custom roadmap. Thirty seconds of your time,
-                a clearer picture of the next quarter.
-              </p>
-              <p className="mt-14 font-serif italic text-mist text-base">
-                — Takes 30 seconds. No sales pitch.
-              </p>
-            </div>
-
-            <div className="md:col-span-7">
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, ease: [0.19, 1, 0.22, 1] }}
-                  className="border hairline p-12 md:p-16 bg-obsidian/60"
-                >
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-wheat mb-6">
-                    Roadmap Requested
-                  </p>
-                  <h3 className="font-serif text-3xl md:text-4xl text-cream leading-[1.05] text-balance">
-                    Your roadmap is on the way.
-                  </h3>
-                  <p className="mt-8 text-mist text-lg leading-[1.55] max-w-[42ch]">
-                    A member of the Pomaika&rsquo;i team will follow up within
-                    24 hours with a tailored plan for your business.
-                  </p>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-14">
-                  {/* Q1 */}
-                  <FormField
-                    label="What describes your business?"
-                    index="01"
-                  >
-                    <select
-                      required
-                      value={form.industry}
-                      onChange={(e) => setForm({ ...form, industry: e.target.value })}
-                      className="w-full bg-transparent border-b hairline-strong text-cream text-lg md:text-xl font-serif py-3 focus:outline-none focus:border-wheat transition-colors"
-                    >
-                      <option value="" disabled className="bg-ink">
-                        Select your industry
-                      </option>
-                      {[
-                        "Local service / trades",
-                        "Retail / e-commerce",
-                        "Hospitality / food",
-                        "Agriculture / land",
-                        "Professional services",
-                        "Creator / media",
-                        "Other",
-                      ].map((v) => (
-                        <option key={v} value={v} className="bg-ink">
-                          {v}
-                        </option>
-                      ))}
-                    </select>
-                  </FormField>
-
-                  {/* Q2 */}
-                  <FormField
-                    label="Biggest growth challenge?"
-                    index="02"
-                  >
-                    <select
-                      required
-                      value={form.challenge}
-                      onChange={(e) => setForm({ ...form, challenge: e.target.value })}
-                      className="w-full bg-transparent border-b hairline-strong text-cream text-lg md:text-xl font-serif py-3 focus:outline-none focus:border-wheat transition-colors"
-                    >
-                      <option value="" disabled className="bg-ink">
-                        Select your challenge
-                      </option>
-                      {[
-                        "Leads and visibility",
-                        "Systems and operations",
-                        "Capital and cash flow",
-                        "Team and delegation",
-                        "Strategy and direction",
-                      ].map((v) => (
-                        <option key={v} value={v} className="bg-ink">
-                          {v}
-                        </option>
-                      ))}
-                    </select>
-                  </FormField>
-
-                  {/* Q3 */}
-                  <FormField
-                    label="Monthly revenue range?"
-                    index="03"
-                  >
-                    <select
-                      required
-                      value={form.revenue}
-                      onChange={(e) => setForm({ ...form, revenue: e.target.value })}
-                      className="w-full bg-transparent border-b hairline-strong text-cream text-lg md:text-xl font-serif py-3 focus:outline-none focus:border-wheat transition-colors"
-                    >
-                      <option value="" disabled className="bg-ink">
-                        Select your range
-                      </option>
-                      {[
-                        "Pre-revenue",
-                        "Under $10K / mo",
-                        "$10K – $50K / mo",
-                        "$50K – $150K / mo",
-                        "$150K+ / mo",
-                      ].map((v) => (
-                        <option key={v} value={v} className="bg-ink">
-                          {v}
-                        </option>
-                      ))}
-                    </select>
-                  </FormField>
-
-                  <div className="pt-4">
-                    <button
-                      type="submit"
-                      className="group inline-flex items-center gap-3 text-ink bg-wheat px-8 py-4 text-[11px] uppercase tracking-[0.24em] hover:bg-wheatLight transition-colors duration-300"
-                    >
-                      Get my roadmap
-                      <ArrowUpRight
-                        size={16}
-                        className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-                      />
-                    </button>
-                  </div>
-                </form>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PROOF / LOGOS */}
-      <section className="relative py-32 md:py-44 border-t hairline">
-        <div className="container-editorial">
-          <div className="text-center">
-            <p className="text-[10px] uppercase tracking-[0.35em] text-wheat mb-8">
-              Trusted across Hawai&rsquo;i
-            </p>
-            <h2 className="font-serif text-3xl md:text-5xl text-cream leading-[1.05] text-balance max-w-[24ch] mx-auto">
-              Founders across the islands, building under one roof.
+          <div className="max-w-5xl mx-auto text-center">
+            <PillBadge className="mx-auto">Start Here</PillBadge>
+            <h2 className="mt-10 font-serif text-display-md text-cream text-balance leading-[1.02] max-w-[20ch] mx-auto">
+              What are you looking to <span className="italic text-cream">build?</span>
             </h2>
-          </div>
-
-          <div className="mt-24 md:mt-32">
-            {/* Marquee logos */}
-            <div className="relative overflow-hidden py-4 border-t border-b hairline">
-              <motion.div
-                initial={{ x: 0 }}
-                animate={{ x: "-50%" }}
-                transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                className="flex whitespace-nowrap"
-              >
-                {[...LOGOS, ...LOGOS, ...LOGOS].map((l, i) => (
-                  <div
-                    key={l + i}
-                    className="flex items-center gap-16 px-10 py-10 border-r hairline last:border-r-0"
-                  >
-                    <span className="font-serif italic text-2xl md:text-3xl text-cream/70 tracking-tight">
-                      {l}
-                    </span>
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* TESTIMONIAL — restrained placeholder */}
-      <section className="py-32 md:py-48 border-t hairline bg-obsidian">
-        <div className="container-editorial">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-[10px] uppercase tracking-[0.35em] text-wheat mb-10">
-              Voices from the ecosystem
+            <p className="mt-10 text-mist text-lg leading-[1.6] max-w-[40ch] mx-auto">
+              Pick one. We&rsquo;ll take you to the right room.
             </p>
-            <blockquote className="font-serif text-3xl md:text-5xl text-cream leading-[1.08] tracking-tight text-balance">
-              &ldquo;<span className="italic">Real testimonials rolling in.</span> Check
-              back soon — we&rsquo;re shipping the first cohort of Pomaika&rsquo;i
-              partners now.&rdquo;
-            </blockquote>
-            <p className="mt-14 text-[10px] uppercase tracking-[0.3em] text-mist">
-              — The Pomaika&rsquo;i Team
+
+            <div className="mt-16 md:mt-20 flex flex-wrap justify-center gap-3 md:gap-4">
+              {CHIPS.map((chip, i) => {
+                const isPicked = picked === chip.label;
+                return (
+                  <motion.button
+                    key={chip.label}
+                    onClick={() => handlePick(chip)}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.55, delay: i * 0.05, ease: [0.19, 1, 0.22, 1] }}
+                    className={`px-6 py-4 border text-sm md:text-base uppercase tracking-[0.2em] transition-all duration-300 ${
+                      isPicked
+                        ? "bg-cream text-ink border-cream"
+                        : "hairline-strong text-cream/90 hover:border-cream hover:text-cream"
+                    }`}
+                  >
+                    {chip.label}
+                  </motion.button>
+                );
+              })}
+            </div>
+
+            <p className="mt-16 text-[10px] uppercase tracking-[0.3em] text-mist">
+              Not sure? Just pick the closest — you can wander the rest.
             </p>
           </div>
         </div>
@@ -376,15 +219,17 @@ export default function Home() {
         <div className="container-editorial">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-14">
             <div className="md:col-span-5">
-              <p className="text-[10px] uppercase tracking-[0.35em] text-wheat mb-8">
-                A note from the founder
+              <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-8">
+                From the founder
               </p>
             </div>
             <div className="md:col-span-7">
               <p className="font-serif text-2xl md:text-4xl text-cream leading-[1.15] text-balance">
-                Pomaika&rsquo;i is Hawaiian for <span className="italic text-wheatLight">good fortune, abundance, blessing.</span>{" "}
-                We built this ecosystem so founders don&rsquo;t have to piece one together
-                alone.
+                Pomaika&rsquo;i means{" "}
+                <span className="italic text-cream">
+                  good fortune, abundance, blessing.
+                </span>{" "}
+                We built the ecosystem so founders don&rsquo;t have to piece one together alone.
               </p>
               <p className="mt-10 text-mist italic font-serif text-lg">
                 — Malachi, Founder
@@ -394,29 +239,5 @@ export default function Home() {
         </div>
       </section>
     </PageTransition>
-  );
-}
-
-function FormField({
-  label,
-  index,
-  children,
-}: {
-  label: string;
-  index: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="grid grid-cols-12 gap-4 items-baseline">
-      <div className="col-span-2 md:col-span-1">
-        <span className="font-serif italic text-mist text-base">{index}</span>
-      </div>
-      <div className="col-span-10 md:col-span-11">
-        <label className="block text-[10px] uppercase tracking-[0.3em] text-mist mb-3">
-          {label}
-        </label>
-        {children}
-      </div>
-    </div>
   );
 }

@@ -16,7 +16,7 @@ export default function StepList({
       <div className="container-editorial">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-14 mb-20 md:mb-28 items-end">
           <div className="md:col-span-4">
-            <p className="text-[10px] uppercase tracking-[0.35em] text-wheat mb-6">{eyebrow}</p>
+            <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-6">{eyebrow}</p>
           </div>
           <div className="md:col-span-8">
             <h2 className="font-serif text-display-md text-cream max-w-[16ch] text-balance">
@@ -39,7 +39,7 @@ export default function StepList({
                 {String(i + 1).padStart(2, "0")}
               </div>
               <div className="col-span-10 md:col-span-3">
-                <p className="font-serif text-2xl md:text-3xl text-cream group-hover:text-wheat transition-colors duration-500">
+                <p className="font-serif text-2xl md:text-3xl text-cream group-hover:text-cream/70 transition-colors duration-500">
                   {s.title}
                 </p>
               </div>

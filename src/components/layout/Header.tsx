@@ -55,7 +55,7 @@ export default function Header() {
                 <>
                   {item.label}
                   <span
-                    className={`absolute -bottom-2 left-0 right-0 h-px bg-wheat origin-left transition-transform duration-500 ease-editorial ${
+                    className={`absolute -bottom-2 left-0 right-0 h-px bg-cream origin-left transition-transform duration-500 ease-editorial ${
                       isActive ? "scale-x-100" : "scale-x-0"
                     }`}
                   />
@@ -68,10 +68,10 @@ export default function Header() {
         <div className="hidden lg:block">
           <a
             href="/#survey"
-            className="group inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-ink bg-wheat px-5 py-2.5 hover:bg-wheatLight transition-colors duration-300"
+            className="group inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-cream border hairline-strong hover:border-cream hover:bg-cream hover:text-ink px-5 py-2.5 transition-all duration-300"
           >
             Apply
-            <span className="w-4 h-px bg-ink group-hover:w-6 transition-all duration-300" />
+            <span className="w-4 h-px bg-cream group-hover:w-6 group-hover:bg-ink transition-all duration-300" />
           </a>
         </div>
 
@@ -98,7 +98,7 @@ export default function Header() {
               end={item.to === "/"}
               className={({ isActive }) =>
                 `font-serif text-3xl tracking-tight transition-colors ${
-                  isActive ? "text-wheat" : "text-cream"
+                  isActive ? "text-cream" : "text-cream/70"
                 }`
               }
             >
@@ -107,9 +107,9 @@ export default function Header() {
           ))}
           <a
             href="/#survey"
-            className="mt-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-ink bg-wheat px-5 py-3 w-fit"
+            className="mt-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-ink bg-cream px-5 py-3 w-fit"
           >
-            Apply / Survey
+            Start Here
           </a>
         </nav>
       </div>

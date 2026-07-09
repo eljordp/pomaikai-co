@@ -11,9 +11,11 @@ export default {
         bone: "#e8e2d3",
         mist: "#a89f8f",
         muted: "#6b6558",
-        wheat: "#b8925a",
-        wheatLight: "#d4b183",
-        wheatDeep: "#8f6d3f",
+        // Legacy wheat tokens remapped to warm off-whites — NO gold anywhere.
+        // Kept as aliases so existing className references continue to compile.
+        wheat: "#e8e2d3",
+        wheatLight: "#f0ebe0",
+        wheatDeep: "#a89f8f",
       },
       fontFamily: {
         serif: ['"Instrument Serif"', 'ui-serif', 'Georgia', 'serif'],
