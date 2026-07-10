@@ -55,12 +55,12 @@ export default function IGTile({
             <span className="text-cream/50 text-lg leading-none">···</span>
           </div>
 
-          {/* 4:5 media */}
+          {/* 1:1 on mobile, 4:5 on desktop — keeps stacked mobile tiles from feeling like empty voids */}
           <div
-            className="relative aspect-[4/5] overflow-hidden"
+            className="relative aspect-square sm:aspect-[4/5] overflow-hidden"
             style={{
               background:
-                "linear-gradient(155deg, #14130f 0%, #1e1c17 45%, #14130f 100%)",
+                "linear-gradient(155deg, #1e1c17 0%, #33291f 45%, #1e1c17 100%)",
             }}
           >
             <div className="absolute inset-0 grain pointer-events-none" />

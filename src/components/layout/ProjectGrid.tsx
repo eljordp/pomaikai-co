@@ -63,9 +63,9 @@ export default function ProjectGrid({ projects = DEFAULT_PROJECTS }: { projects?
 
 function ProjectTile({ project, index }: { project: Project; index: number }) {
   const seedGradient = [
-    "linear-gradient(135deg, #1a1917 0%, #2a2620 50%, #1a1917 100%)",
-    "linear-gradient(160deg, #14130f 0%, #22201a 50%, #14130f 100%)",
-    "linear-gradient(120deg, #101010 0%, #1e1c17 50%, #101010 100%)",
+    "linear-gradient(135deg, #26221c 0%, #3a3229 45%, #1e1a15 100%)",
+    "linear-gradient(160deg, #1e1c17 0%, #33291f 50%, #1e1c17 100%)",
+    "linear-gradient(120deg, #1a1a1a 0%, #2e2820 50%, #1a1a1a 100%)",
   ][index % 3];
 
   return (
@@ -79,9 +79,9 @@ function ProjectTile({ project, index }: { project: Project; index: number }) {
       transition={{ duration: 0.7, delay: (index % 3) * 0.05, ease: [0.19, 1, 0.22, 1] }}
       className="group relative block border-r border-b hairline overflow-hidden hover:bg-obsidian/40 transition-colors duration-500"
     >
-      {/* Visual */}
+      {/* Visual — shorter on mobile (16:10) so 9 stacked tiles don't scroll forever */}
       <div
-        className="relative aspect-[4/3] overflow-hidden"
+        className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden"
         style={{ background: seedGradient }}
       >
         {/* Thumbnail attempt — hides on error via onError handler */}
@@ -93,11 +93,21 @@ function ProjectTile({ project, index }: { project: Project; index: number }) {
           onLoad={(e) => ((e.currentTarget as HTMLImageElement).style.opacity = "0.9")}
           onError={(e) => ((e.currentTarget as HTMLImageElement).style.display = "none")}
         />
-        {/* Fallback serif name — visible unless image successfully loads */}
-        <div className="absolute inset-0 flex items-center justify-center px-8 pointer-events-none">
-          <p className="font-serif italic text-3xl md:text-4xl text-cream/40 text-center leading-tight">
-            {project.name}
-          </p>
+        {/* Fallback: giant number + niche + name — designed as intentional content, not empty state */}
+        <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-7 pointer-events-none">
+          <div className="flex items-start justify-between">
+            <span className="font-serif italic text-cream/70 text-5xl sm:text-6xl leading-none tracking-tighter">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+          </div>
+          <div>
+            <p className="font-serif text-cream text-2xl sm:text-3xl leading-tight">
+              {project.name}
+            </p>
+            <p className="mt-2 text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-cream/60">
+              {project.niche}
+            </p>
+          </div>
         </div>
         {/* Grain */}
         <div className="absolute inset-0 grain pointer-events-none" />
