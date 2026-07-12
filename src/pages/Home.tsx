@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import PageTransition from "../components/layout/PageTransition";
 import PillBadge from "../components/layout/PillBadge";
 import MetricsStrip from "../components/layout/MetricsStrip";
+import TestimonialsBand from "../components/layout/TestimonialsBand";
 
 const CATEGORIES = [
   { label: "Marketing", meta: "Websites · Content · Ads", href: "/marketing" },
@@ -120,6 +121,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ROTATING TESTIMONIALS BAND — 7 restrained placeholders, auto-rotates every 8s.
+          Malachi to send 7 real quotes with names + consent. Replace placeholders
+          in `src/data/testimonials.ts` once approved. */}
+      <TestimonialsBand />
 
       {/* METRICS STRIP — honest only */}
       <MetricsStrip />

@@ -20,17 +20,22 @@ type Project = {
  * When it 404s the browser shows nothing — the gradient wash + serif name still reads.
  * Real screenshots should replace these before Malachi ships this to clients.
  */
+// Only projects delivered under the Pomaika'i brand. Do not add JDLO independent
+// freelance work. Ask JP before adding anything new.
+//
+// JDLO independent work (Ace Venen, Buehler Capital, Carusso Furniture, B. Pressed,
+// Meridian Fleet, Sticker Smith / TSS Print) was intentionally removed 2026-07-12
+// — those clients hired JP under JDLO, not Pomaika'i. Do not re-add.
 const DEFAULT_PROJECTS: Project[] = [
-  { name: "Waimea Lamb Co.", niche: "Agriculture · Storefront", href: "https://waimea-lamb-co.vercel.app", badge: "JDLO AI" },
-  { name: "Aesthetics by Kayy", niche: "Beauty · Booking", href: "https://adorned-landing.vercel.app", badge: "JDLO AI" },
-  { name: "Reese VIP", niche: "AI · Concierge", href: "https://reesvip.com", badge: "JDLO AI" },
-  { name: "Ace Venen", niche: "Trading · Coaching", href: "https://ace-venen-newage.vercel.app", badge: "JDLO AI" },
-  { name: "Buehler Capital", niche: "Finance · Advisory", href: "https://buehler-capital.vercel.app", badge: "JDLO AI" },
-  { name: "Carusso Furniture", niche: "Restoration · Trades", href: "https://carussos-restoration.vercel.app", badge: "JDLO AI" },
-  { name: "B. Pressed", niche: "Retail · Private", href: "https://b-pressed.com", badge: "Pomaika'i" },
-  { name: "Meridian Fleet", niche: "B2B · Services", href: "https://meridian-fleet-lilac.vercel.app", badge: "JDLO AI" },
-  { name: "Sticker Smith", niche: "Print · E-commerce", href: "https://tssprint.com", badge: "JDLO AI" },
+  { name: "Waimea Lamb Co.", niche: "Agriculture · Storefront", href: "https://waimea-lamb-co.vercel.app", badge: "Pomaika'i" },
+  { name: "Aesthetics by Kayy", niche: "Beauty · Booking", href: "https://adorned-landing.vercel.app", badge: "Pomaika'i" },
+  { name: "Reese VIP", niche: "AI · Concierge", href: "https://reesvip.com", badge: "Pomaika'i" },
 ];
+
+/** Strip protocol and trailing slash so tiles display "waimea-lamb-co.vercel.app". */
+function formatDomain(url: string): string {
+  return url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+}
 
 export default function ProjectGrid({ projects = DEFAULT_PROJECTS }: { projects?: Project[] }) {
   return (
@@ -47,13 +52,18 @@ export default function ProjectGrid({ projects = DEFAULT_PROJECTS }: { projects?
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l hairline">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 border-t border-l hairline">
           {projects.map((p, i) => (
             <ProjectTile key={p.name} project={p} index={i} />
           ))}
         </div>
 
-        <p className="mt-16 text-[10px] uppercase tracking-[0.3em] text-mist">
+        <p className="mt-14 font-serif italic text-mist text-base md:text-lg max-w-[52ch]">
+          More case studies as clients close. Pomaika&rsquo;i-built sites only —
+          JDLO independent work lives elsewhere.
+        </p>
+
+        <p className="mt-8 text-[10px] uppercase tracking-[0.3em] text-mist">
           Case study PDFs on request · hello@pomaikai.co
         </p>
       </div>
@@ -93,7 +103,8 @@ function ProjectTile({ project, index }: { project: Project; index: number }) {
           onLoad={(e) => ((e.currentTarget as HTMLImageElement).style.opacity = "0.9")}
           onError={(e) => ((e.currentTarget as HTMLImageElement).style.display = "none")}
         />
-        {/* Fallback: giant number + niche + name — designed as intentional content, not empty state */}
+        {/* Fallback: giant number + niche + name + domain — designed as intentional content, not empty state.
+            Domain in tiny tracked type at bottom gives the tile a "real link" feel when OG images 404. */}
         <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-7 pointer-events-none">
           <div className="flex items-start justify-between">
             <span className="font-serif italic text-cream/70 text-5xl sm:text-6xl leading-none tracking-tighter">
@@ -106,6 +117,9 @@ function ProjectTile({ project, index }: { project: Project; index: number }) {
             </p>
             <p className="mt-2 text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-cream/60">
               {project.niche}
+            </p>
+            <p className="mt-3 text-[9px] uppercase tracking-[0.28em] text-cream/40 truncate">
+              {formatDomain(project.href)}
             </p>
           </div>
         </div>

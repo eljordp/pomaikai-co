@@ -118,7 +118,31 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-24 md:mt-32 pt-8 border-t hairline flex flex-col md:flex-row justify-between gap-4 text-xs text-mist">
+        {/* CERTIFICATION BADGES — OUTLINE ghosts, not earned badges.
+            Each ends with an honest qualifier ("In Progress" / "Setup" / "In Practice").
+            Malachi to earn certifications before removing "In Progress" qualifiers. */}
+        <div className="mt-24 md:mt-32 pt-8 border-t hairline">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-mist mb-5">
+            Standards in practice
+          </p>
+          <div className="flex flex-wrap gap-2 md:gap-3">
+            {[
+              "ICF Coaching · In Progress",
+              "HubSpot Marketing · In Progress",
+              "Google Business · Setup",
+              "SEO Practices · In Practice",
+            ].map((label) => (
+              <span
+                key={label}
+                className="inline-flex items-center px-3 py-1.5 border hairline text-[9.5px] uppercase tracking-[0.28em] text-cream/40 leading-none"
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-10 pt-8 border-t hairline flex flex-col md:flex-row justify-between gap-4 text-xs text-mist">
           <p>© {new Date().getFullYear()} Pomaika&rsquo;i Co. All rights reserved.</p>
           <p className="font-serif italic text-cream/60">Built in Hawai&rsquo;i.</p>
         </div>

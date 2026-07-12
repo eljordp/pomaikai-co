@@ -27,7 +27,7 @@ export default function Academy() {
             Learn. Implement. <span className="italic text-cream">Scale.</span>
           </>
         }
-        subtitle="Courses, workshops, templates. Built by founders still shipping."
+        subtitle="Courses, workshops, templates. Built by founders shipping."
       />
 
       {/* INTUITION INNER TEACHING — inner circle callout */}
@@ -53,7 +53,7 @@ export default function Academy() {
             </div>
             <div className="md:col-span-7">
               <p className="font-serif text-2xl md:text-3xl text-cream leading-[1.2] text-balance">
-                The inner circle. Weekly broadcast. Direct access. A quiet room.
+                Weekly broadcast. Direct access. A quiet room.
               </p>
               <div className="mt-10 flex flex-wrap items-baseline gap-4">
                 <span className="font-serif text-4xl md:text-5xl text-cream tracking-tight">
@@ -83,7 +83,7 @@ export default function Academy() {
             index: "01",
             title: "Courses",
             meta: "Step by step",
-            body: "Marketing, systems, capital, mindset. Watch, apply, ship.",
+            body: "Marketing, systems, capital, mindset. Watch. Apply. Ship.",
           },
           {
             index: "02",
@@ -95,7 +95,7 @@ export default function Academy() {
             index: "03",
             title: "Workshops",
             meta: "Live sessions",
-            body: "Small rooms, live training, real answers.",
+            body: "Small rooms. Live training. Real answers.",
           },
           {
             index: "04",

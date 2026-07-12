@@ -16,7 +16,7 @@ export default function Marketing() {
             Marketing that <span className="italic text-cream">actually ships.</span>
           </>
         }
-        subtitle="Websites, content, ads, AI. Real work, real founders."
+        subtitle="Websites, content, ads, AI. Built for founders."
       />
 
       {/* PORTFOLIO GRID — the centerpiece */}
@@ -42,28 +42,32 @@ export default function Marketing() {
             PLACEHOLDER: These are IG-post-styled tiles, NOT real embeds.
             Handle @pomaikaico is a placeholder until real IG accounts are wired.
             Swap in real oEmbed markup once the accounts exist.
+
+            Only projects delivered under the Pomaika'i brand. Do not swap in
+            JDLO independent freelance work. Ask JP before adding anything new.
+            Pass `image` prop when Malachi sends per-section imagery.
           */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             <IGTile
               index={0}
               title="Waimea Lamb Co."
-              caption="Family ranch. Full storefront. Shipped in a weekend."
+              caption="Family ranch. Full storefront."
               badge="Case Study"
               href="https://waimea-lamb-co.vercel.app"
             />
             <IGTile
               index={1}
-              title="Ace Venen"
-              caption="Coach → offer → landing page → paid students."
+              title="Aesthetics by Kayy"
+              caption="Beauty studio. Booking flow live."
               badge="Case Study"
-              href="https://ace-venen-newage.vercel.app"
+              href="https://adorned-landing.vercel.app"
             />
             <IGTile
               index={2}
-              title="Carusso Furniture"
-              caption="Trades operator. Google Business ready. Quote flow live."
+              title="Reese VIP"
+              caption="AI concierge for a growing roster."
               badge="Case Study"
-              href="https://carussos-restoration.vercel.app"
+              href="https://reesvip.com"
             />
           </div>
 

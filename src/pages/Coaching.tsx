@@ -6,9 +6,9 @@ import CtaBand from "../components/layout/CtaBand";
 import IGTile from "../components/layout/IGTile";
 
 /**
- * NOTE: "ICF-Certified" copy is aspirational per Malachi's brief.
- * Malachi is not yet ICF-certified — swap this line once certification is complete,
- * or replace with "Practitioner-led coaching for founders" as a safer default.
+ * NOTE: Do NOT reintroduce "ICF-Certified" copy — Malachi is still working toward
+ * certification. Footer badges carry the honest "In Progress" qualifier.
+ * Malachi to earn certifications before removing "In Progress" qualifiers.
  */
 
 export default function Coaching() {
@@ -21,7 +21,7 @@ export default function Coaching() {
             Coaching that <span className="italic text-cream">changes everything.</span>
           </>
         }
-        subtitle="ICF-Certified coaching for founders. 1:1, group, and mentorship."
+        subtitle="Founder coaching. 1:1, group, and mentorship."
       />
 
       <PillarList
@@ -32,19 +32,19 @@ export default function Coaching() {
             index: "01",
             title: "1:1 Coaching",
             meta: "Personalized strategy",
-            body: "Weekly work on the ceiling you keep hitting. Adjusted quarterly.",
+            body: "Weekly work on the ceiling you keep hitting.",
           },
           {
             index: "02",
             title: "Group Sessions",
             meta: "Peer accountability",
-            body: "Small cohorts of founders who are actually shipping.",
+            body: "Small cohorts of founders actually shipping.",
           },
           {
             index: "03",
             title: "Founder Mentorship",
             meta: "Long arc, high signal",
-            body: "For the business you're building over years, not months.",
+            body: "For the business you're building over years.",
           },
         ]}
       />
@@ -65,24 +65,25 @@ export default function Coaching() {
             </div>
           </div>
 
-          {/* PLACEHOLDER: mock IG-style tiles until real testimonials/embeds land. */}
+          {/* PLACEHOLDER: mock IG-style tiles until real testimonials/embeds land.
+              Pass `image` prop when Malachi sends per-section imagery. */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             <IGTile
               index={0}
               title="Ceiling broke."
-              caption="Weekly reps. Small room. Real accountability."
+              caption="Weekly reps. Small room. Accountability."
               badge="1:1"
             />
             <IGTile
               index={1}
               title="First $10K month."
-              caption="From stuck to shipping in one quarter."
+              caption="Stuck to shipping in one quarter."
               badge="Group"
             />
             <IGTile
               index={2}
               title="Team of one → team of five."
-              caption="Systems, delegation, freedom."
+              caption="Systems. Delegation. Freedom."
               badge="Mentorship"
             />
           </div>
@@ -99,7 +100,7 @@ export default function Coaching() {
         steps={[
           {
             title: "Mindset",
-            body: "Identity and patterns. Nothing scales past the operator.",
+            body: "Nothing scales past the operator.",
           },
           {
             title: "Strategy",
@@ -107,11 +108,11 @@ export default function Coaching() {
           },
           {
             title: "Execution",
-            body: "Weekly rhythms, real deliverables, honest reviews.",
+            body: "Weekly rhythms. Real deliverables. Honest reviews.",
           },
           {
             title: "Freedom",
-            body: "Time back, systems humming, a team you trust.",
+            body: "Time back. Systems humming. A team you trust.",
           },
         ]}
       />

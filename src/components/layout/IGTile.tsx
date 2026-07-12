@@ -9,11 +9,22 @@ type Props = {
   badge?: string;
   href?: string;
   index?: number;
+  /**
+   * Optional real image URL. When passed, renders as `<img>` filling the
+   * 1:1 (mobile) / 4:5 (desktop) tile area. When omitted, falls back to
+   * the serif-title gradient tile.
+   *
+   * Pass `image` prop when Malachi sends per-section imagery.
+   */
+  image?: string;
 };
 
 /**
- * IG-post-styled tile (4:5). NOT a real embed — placeholder handle @pomaikaico.
+ * IG-post-styled tile. NOT a real embed — placeholder handle @pomaikaico.
  * Swap to real embeds via Instagram oEmbed when the accounts are live.
+ *
+ * Pass `image` prop when Malachi sends per-section imagery. Without it,
+ * the serif-title fallback stays clean.
  */
 export default function IGTile({
   handle = "@pomaikaico",
@@ -22,6 +33,7 @@ export default function IGTile({
   badge,
   href,
   index = 0,
+  image,
 }: Props) {
   const Wrap = ({ children }: { children: React.ReactNode }) =>
     href ? (
@@ -63,12 +75,23 @@ export default function IGTile({
                 "linear-gradient(155deg, #1e1c17 0%, #33291f 45%, #1e1c17 100%)",
             }}
           >
+            {image ? (
+              // Real image mode — Malachi-supplied imagery fills the tile.
+              <img
+                src={image}
+                alt={title}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-[900ms] ease-editorial"
+              />
+            ) : (
+              // Serif-title fallback — clean, restrained, until real imagery lands.
+              <div className="absolute inset-0 flex items-center justify-center px-8">
+                <p className="font-serif text-3xl md:text-4xl text-cream text-center leading-tight text-balance group-hover:scale-[1.02] transition-transform duration-[900ms] ease-editorial">
+                  {title}
+                </p>
+              </div>
+            )}
             <div className="absolute inset-0 grain pointer-events-none" />
-            <div className="absolute inset-0 flex items-center justify-center px-8">
-              <p className="font-serif text-3xl md:text-4xl text-cream text-center leading-tight text-balance group-hover:scale-[1.02] transition-transform duration-[900ms] ease-editorial">
-                {title}
-              </p>
-            </div>
             {badge && (
               <div className="absolute top-4 left-4">
                 <PillBadge>{badge}</PillBadge>

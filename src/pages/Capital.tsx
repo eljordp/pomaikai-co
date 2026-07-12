@@ -8,6 +8,8 @@ import IGTile from "../components/layout/IGTile";
 export default function Capital() {
   return (
     <PageTransition>
+      {/* Do not display Malachi's personal credit as "client funded." Waiting
+          on real client-raised capital figure before adding a metrics slot here. */}
       <PageIntro
         eyebrow="Capital"
         title={
@@ -15,7 +17,7 @@ export default function Capital() {
             Capital. Funding. <span className="italic text-cream">Freedom.</span>
           </>
         }
-        subtitle="0% APR funding. Business loans. Lines of credit. Wealth strategy."
+        subtitle="0% APR funding. Loans. Lines of credit. Wealth strategy."
       />
 
       <PillarList
@@ -26,7 +28,7 @@ export default function Capital() {
             index: "01",
             title: "0% APR Funding",
             meta: "Up to $150K",
-            body: "Build inventory, hire, or launch without the drag of interest in year one.",
+            body: "Inventory, hires, launches — without year-one interest drag.",
           },
           {
             index: "02",
@@ -38,7 +40,7 @@ export default function Capital() {
             index: "03",
             title: "Lines of Credit",
             meta: "Flexible capital",
-            body: "Draw when the opportunity is real, sit tight when it isn't.",
+            body: "Draw when the opportunity is real. Sit tight when it isn't.",
           },
           {
             index: "04",
@@ -65,7 +67,8 @@ export default function Capital() {
             </div>
           </div>
 
-          {/* PLACEHOLDER: mock IG-style tiles. Real funding case studies TBD. */}
+          {/* PLACEHOLDER: mock IG-style tiles. Real funding case studies TBD.
+              Pass `image` prop when Malachi sends per-section imagery. */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             <IGTile
               index={0}
@@ -76,13 +79,13 @@ export default function Capital() {
             <IGTile
               index={1}
               title="Line of credit live."
-              caption="Cash flow flexed. Ops kept humming."
+              caption="Cash flow flexed. Ops humming."
               badge="LOC"
             />
             <IGTile
               index={2}
               title="Structure locked."
-              caption="Entity, retirement, quarterly plan. All in."
+              caption="Entity, retirement, quarterly plan."
               badge="Strategy"
             />
           </div>
@@ -99,19 +102,19 @@ export default function Capital() {
         steps={[
           {
             title: "Qualify",
-            body: "No hard pulls until we know a path exists.",
+            body: "No hard pulls until a path exists.",
           },
           {
             title: "Strategize",
-            body: "See the full stack before anything is submitted.",
+            body: "See the full stack before submitting.",
           },
           {
             title: "Secure",
-            body: "We handle paperwork. You stay focused on the business.",
+            body: "We handle paperwork. You run the business.",
           },
           {
             title: "Grow",
-            body: "Deploy capital with the discipline it took to secure it.",
+            body: "Deploy with the discipline it took to secure.",
           },
         ]}
       />

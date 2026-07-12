@@ -15,7 +15,7 @@ export default function Partners() {
             For founders. <span className="italic text-cream">By founders.</span>
           </>
         }
-        subtitle="Private advisory. Strategic partnerships. Inner circle."
+        subtitle="Private advisory. Partnerships. Inner circle."
       />
 
       <PillarList
@@ -26,19 +26,19 @@ export default function Partners() {
             index: "01",
             title: "Private Advisory",
             meta: "Board-level guidance",
-            body: "Quarterly reviews, ongoing counsel, network access.",
+            body: "Quarterly reviews. Ongoing counsel. Network access.",
           },
           {
             index: "02",
             title: "Strategic Partnerships",
             meta: "Aligned operators",
-            body: "Real value beyond capital. Deals, distribution, honest calibration.",
+            body: "Deals, distribution, honest calibration. Value beyond capital.",
           },
           {
             index: "03",
             title: "Founding Partners",
             meta: "Inner circle",
-            body: "A small cohort helping shape how the ecosystem evolves.",
+            body: "A small cohort shaping how the ecosystem evolves.",
           },
         ]}
       />
@@ -96,11 +96,11 @@ export default function Partners() {
               A note on partnership
             </p>
             <p className="font-serif text-3xl md:text-5xl text-cream leading-[1.08] text-balance">
-              We keep the room small on purpose.{" "}
+              Small room, on purpose.{" "}
               <span className="italic text-cream">
                 Fewer partners, deeper wins.
               </span>{" "}
-              If that matches how you already operate, let&rsquo;s talk.
+              If that&rsquo;s how you operate, let&rsquo;s talk.
             </p>
           </div>
         </div>
