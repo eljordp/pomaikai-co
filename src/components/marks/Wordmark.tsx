@@ -7,31 +7,20 @@ type Props = {
 };
 
 /**
- * PŌMAIKA'I wordmark. Warm-cream glyph — no gold anywhere.
+ * PŌMAIKA'I logo — matches the pomaika.co header treatment.
+ * Just the logo image (no separate wordmark text — PŌMAIKA'I is baked into the mark).
  */
 export default function Wordmark({ size = "sm", showTag = false, className = "" }: Props) {
-  const wordSize =
-    size === "lg"
-      ? "text-2xl md:text-3xl"
-      : size === "md"
-        ? "text-lg md:text-xl"
-        : "text-sm md:text-base";
-  const glyphSize = size === "lg" ? 26 : size === "md" ? 20 : 16;
-
-  const markSize = size === "lg" ? 44 : size === "md" ? 34 : 28;
+  const markHeight =
+    size === "lg" ? "h-14 md:h-16" : size === "md" ? "h-11 md:h-12" : "h-9 md:h-10";
 
   return (
-    <Link to="/" className={`group inline-flex items-center gap-2.5 ${className}`}>
+    <Link to="/" className={`group inline-flex items-center gap-3 ${className}`}>
       <img
         src="/pomaikai-logo.png"
         alt="Pōmaika'i"
-        width={markSize}
-        height={markSize}
-        className="transition-transform duration-500 ease-editorial group-hover:rotate-3"
+        className={`${markHeight} w-auto transition-transform duration-500 ease-editorial group-hover:rotate-2`}
       />
-      <span className={`font-serif ${wordSize} tracking-tight text-cream leading-none`}>
-        PŌMAIKA<span className="text-cream/60">&rsquo;</span>I
-      </span>
       {showTag && (
         <span className="hidden md:inline text-[10px] tracking-[0.3em] text-mist uppercase pl-3 border-l hairline-strong">
           Ecosystem Co.
