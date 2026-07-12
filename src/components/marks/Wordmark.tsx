@@ -18,26 +18,17 @@ export default function Wordmark({ size = "sm", showTag = false, className = "" 
         : "text-sm md:text-base";
   const glyphSize = size === "lg" ? 26 : size === "md" ? 20 : 16;
 
+  const markSize = size === "lg" ? 44 : size === "md" ? 34 : 28;
+
   return (
     <Link to="/" className={`group inline-flex items-center gap-2.5 ${className}`}>
-      <svg
-        width={glyphSize}
-        height={glyphSize}
-        viewBox="0 0 32 32"
-        fill="none"
-        aria-hidden
-        className="text-cream transition-transform duration-500 ease-editorial group-hover:rotate-6"
-      >
-        <g stroke="currentColor" strokeWidth="1.4" strokeLinecap="round">
-          <path d="M16 4 L16 28" />
-          <path d="M16 10 C 10 10 8 12 8 16" />
-          <path d="M16 10 C 22 10 24 12 24 16" />
-          <path d="M16 16 C 10 16 8 18 8 22" />
-          <path d="M16 16 C 22 16 24 18 24 22" />
-          <path d="M16 22 C 12 22 10 23 10 26" />
-          <path d="M16 22 C 20 22 22 23 22 26" />
-        </g>
-      </svg>
+      <img
+        src="/pomaikai-logo.png"
+        alt="Pōmaika'i"
+        width={markSize}
+        height={markSize}
+        className="transition-transform duration-500 ease-editorial group-hover:rotate-3"
+      />
       <span className={`font-serif ${wordSize} tracking-tight text-cream leading-none`}>
         PŌMAIKA<span className="text-cream/60">&rsquo;</span>I
       </span>

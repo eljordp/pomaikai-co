@@ -8,8 +8,6 @@ import IGTile from "../components/layout/IGTile";
 export default function Capital() {
   return (
     <PageTransition>
-      {/* Do not display Malachi's personal credit as "client funded." Waiting
-          on real client-raised capital figure before adding a metrics slot here. */}
       <PageIntro
         eyebrow="Capital"
         title={
@@ -19,6 +17,28 @@ export default function Capital() {
         }
         subtitle="0% APR funding. Loans. Lines of credit. Wealth strategy."
       />
+
+      {/* Founder-side capital deployed. Per Malachi: personal credit /
+          debt / loans figure. Not client-raised capital. */}
+      <section className="py-24 md:py-32 border-t hairline">
+        <div className="container-editorial">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-baseline">
+            <div className="md:col-span-4">
+              <p className="text-[10px] uppercase tracking-[0.35em] text-bone">
+                Capital deployed
+              </p>
+            </div>
+            <div className="md:col-span-8">
+              <p className="font-serif text-display-md md:text-display-lg text-cream leading-[0.95]">
+                $250,000<span className="italic text-cream/70 text-2xl md:text-3xl align-super"></span>
+              </p>
+              <p className="mt-6 text-sm text-mist max-w-[36ch]">
+                Founder-side capital already at work — deployed across credit lines, loans, and inventory to bring this to founders in Waimea and beyond.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <PillarList
         eyebrow="How we fund founders"
