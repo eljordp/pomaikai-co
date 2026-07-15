@@ -52,21 +52,21 @@ export default function Marketing() {
               index={0}
               title="Waimea Lamb Co."
               caption="Family ranch. Full storefront."
-              badge="Case Study"
+              badge="JDLO AI"
               href="https://waimea-lamb-co.vercel.app"
             />
             <IGTile
               index={1}
               title="Aesthetics by Kayy"
               caption="Beauty studio. Booking flow live."
-              badge="Case Study"
+              badge="JDLO AI"
               href="https://adorned-landing.vercel.app"
             />
             <IGTile
               index={2}
               title="Reese VIP"
               caption="AI concierge for a growing roster."
-              badge="Case Study"
+              badge="JDLO AI"
               href="https://reesvip.com"
             />
           </div>

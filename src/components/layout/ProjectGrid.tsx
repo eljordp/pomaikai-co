@@ -26,10 +26,13 @@ type Project = {
 // JDLO independent work (Ace Venen, Buehler Capital, Carusso Furniture, B. Pressed,
 // Meridian Fleet, Sticker Smith / TSS Print) was intentionally removed 2026-07-12
 // — those clients hired JP under JDLO, not Pomaika'i. Do not re-add.
+// Malachi confirmed 2026-07-15 VM: keep JDLO AI credit on sites JP built.
+// Badge label "JDLO AI" → PillBadge renders as a link to jdlo.site so credit
+// is clickable, but the main tile still routes to the client's live site.
 const DEFAULT_PROJECTS: Project[] = [
-  { name: "Waimea Lamb Co.", niche: "Agriculture · Storefront", href: "https://waimea-lamb-co.vercel.app", badge: "Pomaika'i" },
-  { name: "Aesthetics by Kayy", niche: "Beauty · Booking", href: "https://adorned-landing.vercel.app", badge: "Pomaika'i" },
-  { name: "Reese VIP", niche: "AI · Concierge", href: "https://reesvip.com", badge: "Pomaika'i" },
+  { name: "Waimea Lamb Co.", niche: "Agriculture · Storefront", href: "https://waimea-lamb-co.vercel.app", badge: "JDLO AI" },
+  { name: "Aesthetics by Kayy", niche: "Beauty · Booking", href: "https://adorned-landing.vercel.app", badge: "JDLO AI" },
+  { name: "Reese VIP", niche: "AI · Concierge", href: "https://reesvip.com", badge: "JDLO AI" },
 ];
 
 /** Strip protocol and trailing slash so tiles display "waimea-lamb-co.vercel.app". */
@@ -125,10 +128,12 @@ function ProjectTile({ project, index }: { project: Project; index: number }) {
         </div>
         {/* Grain */}
         <div className="absolute inset-0 grain pointer-events-none" />
-        {/* Top-right badge */}
+        {/* Top-right badge — links to jdlo.site when the badge is "JDLO AI" */}
         {project.badge && (
           <div className="absolute top-4 right-4 z-10">
-            <PillBadge>{project.badge}</PillBadge>
+            <PillBadge href={project.badge === "JDLO AI" ? "https://jdlo.site" : undefined}>
+              {project.badge}
+            </PillBadge>
           </div>
         )}
         {/* Hover arrow */}

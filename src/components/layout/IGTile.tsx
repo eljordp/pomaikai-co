@@ -94,7 +94,9 @@ export default function IGTile({
             <div className="absolute inset-0 grain pointer-events-none" />
             {badge && (
               <div className="absolute top-4 left-4">
-                <PillBadge>{badge}</PillBadge>
+                <PillBadge href={badge === "JDLO AI" ? "https://jdlo.site" : undefined}>
+                  {badge}
+                </PillBadge>
               </div>
             )}
           </div>
