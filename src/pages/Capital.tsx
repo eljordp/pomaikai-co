@@ -5,6 +5,9 @@ import StepList from "../components/layout/StepList";
 import CtaBand from "../components/layout/CtaBand";
 import IGTile from "../components/layout/IGTile";
 
+/**
+ * CAPITAL — content refresh per Malachi 2026-07-17.
+ */
 export default function Capital() {
   return (
     <PageTransition>
@@ -12,28 +15,29 @@ export default function Capital() {
         eyebrow="Capital"
         title={
           <>
-            Capital. Funding. <span className="italic text-cream">Freedom.</span>
+            Finance. Funding. <span className="italic text-cream">Freedom.</span>
           </>
         }
-        subtitle="0% APR funding. Loans. Lines of credit. Wealth strategy."
+        subtitle="0% APR funding, business loans and LOCs, credit optimization, banking relationships, capital strategy, wealth architecture."
       />
 
-      {/* Founder-side capital deployed. Per Malachi: personal credit /
-          debt / loans figure. Not client-raised capital. */}
+      {/* Working capital deployed — founder-side capital. */}
       <section className="py-24 md:py-32 border-t hairline">
         <div className="container-editorial">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-baseline">
             <div className="md:col-span-4">
               <p className="text-[10px] uppercase tracking-[0.35em] text-bone">
-                Capital deployed
+                Working Capital Deployed
               </p>
             </div>
             <div className="md:col-span-8">
               <p className="font-serif text-display-md md:text-display-lg text-cream leading-[0.95]">
-                $250,000<span className="italic text-cream/70 text-2xl md:text-3xl align-super"></span>
+                $250,000
               </p>
-              <p className="mt-6 text-sm text-mist max-w-[36ch]">
-                Founder-side capital already at work — deployed across credit lines, loans, and inventory to bring this to founders in Waimea and beyond.
+              <p className="mt-6 text-sm text-mist max-w-[46ch]">
+                Working capital deployed across credit lines, loans, grants,
+                and other instruments. Founder-side capital already at work —
+                bringing Pōmaika&rsquo;i to founders in Waimea and beyond.
               </p>
             </div>
           </div>
@@ -41,54 +45,61 @@ export default function Capital() {
       </section>
 
       <PillarList
-        eyebrow="How we fund founders"
-        heading={<>Four levers. Deployed at the right moment.</>}
+        eyebrow="How we fund partners"
+        heading={
+          <>
+            Three primary levers.{" "}
+            <span className="italic text-cream">TLC.</span>
+          </>
+        }
         pillars={[
           {
             index: "01",
-            title: "0% APR Funding",
-            meta: "Up to $150K",
-            body: "Inventory, hires, launches — without year-one interest drag.",
+            title: "Trajectory",
+            meta: "Where you're headed",
+            body: "Strategic evaluation of business trajectory and opportunities.",
           },
           {
             index: "02",
-            title: "Business Loans",
-            meta: "Fast approvals",
-            body: "Underwritten by the shape of your operation, not just your credit file.",
+            title: "Leverage",
+            meta: "What's already yours",
+            body: "Available resources mapped against opportunity.",
           },
           {
             index: "03",
-            title: "Lines of Credit",
-            meta: "Flexible capital",
-            body: "Draw when the opportunity is real. Sit tight when it isn't.",
-          },
-          {
-            index: "04",
-            title: "Tax Strategy",
-            meta: "Wealth architecture",
-            body: "Keep more of what you earn. Built alongside your CPA.",
+            title: "Capital",
+            meta: "Deployed with discipline",
+            body: "Deployed efficiently. Compounding for long-term ROI.",
           },
         ]}
       />
 
-      {/* IG-STYLE FUNDING WINS */}
+      {/* Tender Love and Care — meaning of TLC, kept subtle. */}
+      <section className="border-t hairline">
+        <div className="container-editorial py-10">
+          <p className="font-serif italic text-mist text-lg">
+            Tender Love and Care.
+          </p>
+        </div>
+      </section>
+
+      {/* IG-STYLE ARCHIVE TILES */}
       <section className="py-32 md:py-44 border-t hairline bg-obsidian">
         <div className="container-editorial">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-14 mb-16 md:mb-24 items-end">
             <div className="md:col-span-4">
               <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-6">
-                From the room
+                Pōmaika&rsquo;i Archive
               </p>
             </div>
             <div className="md:col-span-8">
               <h2 className="font-serif text-display-md text-cream max-w-[18ch] text-balance leading-[1.02]">
-                Capital that moves.
+                <span className="italic text-cream">Freedom.</span>
               </h2>
             </div>
           </div>
 
-          {/* PLACEHOLDER: mock IG-style tiles. Real funding case studies TBD.
-              Pass `image` prop when Malachi sends per-section imagery. */}
+          {/* PLACEHOLDER: pass `image` prop when Malachi sends imagery. */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             <IGTile
               index={0}
@@ -118,32 +129,28 @@ export default function Capital() {
 
       <StepList
         eyebrow="Roadmap"
-        heading="From application to approved."
+        heading="A to Z. Application to approved."
         steps={[
           {
-            title: "Qualify",
-            body: "No hard pulls until a path exists.",
+            title: "Strategic Assessment",
+            body: "What's applicable and available?",
           },
           {
-            title: "Strategize",
-            body: "See the full stack before submitting.",
+            title: "High Leverage Opportunities",
+            body: "Highest leverage pathways.",
           },
           {
-            title: "Secure",
-            body: "We handle paperwork. You run the business.",
-          },
-          {
-            title: "Grow",
-            body: "Deploy with the discipline it took to secure.",
+            title: "Capital Deployment with Discipline",
+            body: "Deploy working capital effectively.",
           },
         ]}
       />
 
       <CtaBand
-        eyebrow="Get started"
+        eyebrow="Ready for freedom?"
         title="Schedule your capital strategy call."
         ctaLabel="Book the call"
-        href="mailto:hello@pomaikai.co?subject=Capital%20Strategy%20Call"
+        href="mailto:info@pomaikai.co?subject=Capital%20Strategy%20Call"
       />
     </PageTransition>
   );

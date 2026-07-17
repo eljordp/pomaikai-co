@@ -7,23 +7,92 @@ import PillBadge from "../components/layout/PillBadge";
 import MetricsStrip from "../components/layout/MetricsStrip";
 import TestimonialsBand from "../components/layout/TestimonialsBand";
 
-const CATEGORIES = [
-  { label: "Marketing", meta: "Websites · Content · Ads", href: "/marketing" },
-  { label: "Capital", meta: "0% Funding · Strategy", href: "/capital" },
-  { label: "Coaching", meta: "Mindset · Mentorship", href: "/coaching" },
-  { label: "Academy", meta: "Courses · Community", href: "/academy" },
-  { label: "Partners", meta: "Advisory · Inner Circle", href: "/partners" },
-  { label: "Membership", meta: "$500/mo · All-in", href: "/partners" },
+type EcosystemTile = {
+  index: string;
+  label: string;
+  meta: string;
+  href: string;
+};
+
+const ECOSYSTEM: EcosystemTile[] = [
+  { index: "01", label: "Growth", meta: "Marketing · Websites · Ads · AI", href: "/growth" },
+  { index: "02", label: "Leadership", meta: "Mindset · 1:1 Coaching", href: "/leadership" },
+  { index: "03", label: "Capital", meta: "Freedom · 0% Funding · Strategy", href: "/capital" },
+  { index: "04", label: "Institute", meta: "Community · Courses · Development", href: "/institute" },
+  { index: "05", label: "Collective", meta: "Private Advisory · Inner Circle · Wealth Architecture", href: "/collective" },
+  { index: "06", label: "Partnerships", meta: "Starting at $250/mo", href: "/partnerships" },
 ];
 
-const CHIPS = [
-  { label: "Website", to: "/marketing" },
-  { label: "AI Systems", to: "/marketing" },
-  { label: "Marketing", to: "/marketing" },
-  { label: "Funding", to: "/capital" },
-  { label: "Coaching", to: "/coaching" },
-  { label: "Just Curious", to: "/academy" },
-] as const;
+type Chip = { label: string; to: string };
+
+const CHIPS: Chip[] = [
+  { label: "Mentally", to: "/leadership" },
+  { label: "Financially", to: "/growth" },
+  { label: "Professionally", to: "/growth" },
+  { label: "Emotionally", to: "/leadership" },
+  { label: "Educationally", to: "/growth" },
+  { label: "Spiritually", to: "/leadership" },
+];
+
+type Principle = { word: string; body: string };
+
+const PRINCIPLES: Principle[] = [
+  { word: "Aloha", body: "Lead with love and respect." },
+  { word: "Pōmaika'i", body: "Create prosperity and opportunity." },
+  { word: "Laulima", body: "Build together through community and cooperation." },
+  { word: "Pono", body: "Do what is right. Maintain the balance." },
+  { word: "Kuleana", body: "Take ownership and responsibility." },
+  { word: "Ho'oulu", body: "Cultivate growth and increase." },
+  { word: "Waiwai", body: "Create wealth, prosperity, true value, abundance." },
+];
+
+type Tier = {
+  name: string;
+  price: string;
+  body: string;
+  ghost?: boolean;
+  meta?: string;
+};
+
+const TIERS: Tier[] = [
+  {
+    name: "Build.",
+    price: "Starting at $500/month",
+    body: "Build a strong foundation with strategic guidance, essential growth systems, and ongoing support.",
+  },
+  {
+    name: "Grow.",
+    price: "Starting at $1,000/month",
+    body: "Accelerate your business with expanded strategy, implementation, and tools designed to create consistent momentum.",
+  },
+  {
+    name: "Scale.",
+    price: "Starting at $2,500/month",
+    body: "A comprehensive partnership focused on scalable systems, implementation, marketing, AI, and long-term business growth.",
+  },
+];
+
+const PARTNER_GHOST: Tier = {
+  name: "Partner",
+  price: "Creative Finance · Private Advisory",
+  body: "A private advisory partnership for founders, executives, and organizations seeking strategic guidance, leadership development, capital planning, and long-term growth.",
+  ghost: true,
+};
+
+const SERVICES = [
+  "Business Strategy",
+  "Brand Development",
+  "Website Design",
+  "AI Integration",
+  "Content Creation",
+  "Marketing",
+  "SEO",
+  "CRM & Automation",
+  "Executive Coaching",
+  "Leadership Development",
+  "Strategic Advisory",
+  "Capital Guidance",
+];
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -34,9 +103,8 @@ export default function Home() {
   const navigate = useNavigate();
   const [picked, setPicked] = useState<string | null>(null);
 
-  const handlePick = (chip: (typeof CHIPS)[number]) => {
+  const handlePick = (chip: Chip) => {
     setPicked(chip.label);
-    // Small delay so the pill highlight lands before route change.
     window.setTimeout(() => navigate(chip.to), 320);
   };
 
@@ -70,30 +138,30 @@ export default function Home() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
-                className="mb-10 flex flex-wrap items-center gap-3"
+                className="mb-10"
               >
-                <PillBadge>Pomaika&rsquo;i Ecosystem</PillBadge>
-                <PillBadge>Big Island Based</PillBadge>
+                <PillBadge>Pōmaika&rsquo;i Co</PillBadge>
               </motion.div>
 
               <motion.h1
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.1, ease: [0.19, 1, 0.22, 1] }}
-                className="font-serif text-display-xl text-cream leading-[0.94] max-w-[14ch] text-balance"
+                className="font-serif text-display-xl text-cream leading-[0.94] max-w-[16ch] text-balance"
               >
-                Build your business.
+                Built For Hawai&rsquo;i.
                 <br />
-                <span className="italic text-cream">Build abundance.</span>
+                <span className="italic text-cream">Built For Growth.</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.3, ease: [0.19, 1, 0.22, 1] }}
-                className="mt-12 md:mt-16 text-lg md:text-xl text-mist max-w-[42ch] leading-[1.55] text-pretty"
+                className="mt-12 md:mt-16 text-lg md:text-xl text-mist max-w-[44ch] leading-[1.55] text-pretty"
               >
-                One roof. Every lever. Founders scaling with strategy, systems, and support.
+                Helping Hawai&rsquo;i&rsquo;s businesses, creators, and
+                entrepreneurs grow with confidence.
               </motion.p>
 
               <motion.div
@@ -103,31 +171,51 @@ export default function Home() {
                 className="mt-14 md:mt-20 flex flex-wrap items-center gap-6"
               >
                 <a
-                  href="#survey"
+                  href="#partnerships"
                   className="group inline-flex items-center gap-3 text-ink bg-cream px-7 py-4 text-[11px] uppercase tracking-[0.24em] hover:bg-bone transition-colors duration-300"
                 >
-                  Start Here
+                  Partner With Us
                   <ArrowDown size={15} className="group-hover:translate-y-0.5 transition-transform duration-300" />
                 </a>
                 <a
                   href="#ecosystem"
                   className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.24em] text-cream/85 hover:text-cream transition-colors duration-300 underline underline-offset-8 decoration-cream/20 hover:decoration-cream/70"
                 >
-                  See the Ecosystem
+                  Explore Ecosystem
                   <ArrowUpRight size={15} />
                 </a>
+              </motion.div>
+
+              {/* HAIRLINE PILL BADGES */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, delay: 0.6, ease: [0.19, 1, 0.22, 1] }}
+                className="mt-16 md:mt-24 flex flex-wrap items-center gap-3"
+              >
+                <PillBadge>5+ Pathways</PillBadge>
+                <PillBadge>Value-Based Ecosystem</PillBadge>
+                <PillBadge>Hawai&rsquo;i First</PillBadge>
+                <PillBadge>1 Mission. Growth.</PillBadge>
               </motion.div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ROTATING TESTIMONIALS BAND — 7 restrained placeholders, auto-rotates every 8s.
-          Malachi to send 7 real quotes with names + consent. Replace placeholders
-          in `src/data/testimonials.ts` once approved. */}
+      {/* MEANING BAND — subtle single-line, hairline rule above */}
+      <section className="border-t hairline">
+        <div className="container-editorial py-8 md:py-10">
+          <p className="font-serif italic text-cream/60 text-sm md:text-base tracking-wide">
+            Pōmaika&rsquo;i: Blessedness. Good Fortune.
+          </p>
+        </div>
+      </section>
+
+      {/* ROTATING TESTIMONIALS BAND — placeholders until Malachi sends real quotes */}
       <TestimonialsBand />
 
-      {/* METRICS STRIP — honest only */}
+      {/* METRICS STRIP */}
       <MetricsStrip />
 
       {/* ECOSYSTEM CATEGORIES */}
@@ -137,30 +225,30 @@ export default function Home() {
             <p className="md:col-span-4 text-[10px] uppercase tracking-[0.35em] text-mist">
               The Ecosystem
             </p>
-            <p className="md:col-span-8 mt-3 md:mt-0 text-cream/80 font-serif italic text-lg">
-              Six practices. One operating system.
+            <p className="md:col-span-8 mt-3 md:mt-0 text-cream/80 font-serif italic text-lg md:text-xl">
+              Five pathways. One operating system.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-6">
-            {CATEGORIES.map((c, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3">
+            {ECOSYSTEM.map((c, i) => (
               <motion.a
                 key={c.label}
                 href={c.href}
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.05, ease: [0.19, 1, 0.22, 1] }}
-                className="group py-10 md:py-16 px-4 md:px-6 border-r border-b hairline md:border-b-0 last:border-r-0 flex flex-col justify-between min-h-[180px] md:min-h-[220px] hover:bg-obsidian/60 transition-colors duration-500"
+                transition={{ duration: 0.6, delay: (i % 3) * 0.05, ease: [0.19, 1, 0.22, 1] }}
+                className="group py-14 md:py-24 px-6 md:px-10 border-r border-b hairline last:border-r-0 md:[&:nth-child(3n)]:border-r-0 flex flex-col justify-between min-h-[260px] md:min-h-[320px] hover:bg-obsidian/60 transition-colors duration-500"
               >
                 <span className="text-[10px] uppercase tracking-[0.28em] text-mist group-hover:text-cream transition-colors duration-500">
-                  {String(i + 1).padStart(2, "0")}
+                  {c.index}
                 </span>
                 <div>
-                  <p className="font-serif text-2xl md:text-3xl text-cream leading-[1.02] tracking-tight">
+                  <p className="font-serif text-3xl md:text-5xl text-cream leading-[1.02] tracking-tight">
                     {c.label}
                   </p>
-                  <p className="mt-1 font-serif italic text-mist text-sm md:text-base">
+                  <p className="mt-3 font-serif italic text-mist text-base md:text-lg max-w-[36ch]">
                     {c.meta}
                   </p>
                 </div>
@@ -170,7 +258,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SIMPLIFIED SURVEY — one question, chips */}
+      {/* START HERE — chip picker */}
       <section id="survey" className="relative py-32 md:py-48 border-t hairline overflow-hidden">
         <div
           aria-hidden
@@ -183,12 +271,10 @@ export default function Home() {
         <div className="container-editorial relative">
           <div className="max-w-5xl mx-auto text-center">
             <PillBadge className="mx-auto">Start Here</PillBadge>
-            <h2 className="mt-10 font-serif text-display-md text-cream text-balance leading-[1.02] max-w-[20ch] mx-auto">
-              What are you looking to <span className="italic text-cream">build?</span>
+            <h2 className="mt-10 font-serif text-display-md text-cream text-balance leading-[1.02] max-w-[22ch] mx-auto">
+              Where are you looking to{" "}
+              <span className="italic text-cream">grow?</span>
             </h2>
-            <p className="mt-10 text-mist text-lg leading-[1.6] max-w-[40ch] mx-auto">
-              Pick one. We&rsquo;ll take you to the right room.
-            </p>
 
             <div className="mt-16 md:mt-20 flex flex-wrap justify-center gap-3 md:gap-4">
               {CHIPS.map((chip, i) => {
@@ -213,34 +299,225 @@ export default function Home() {
               })}
             </div>
 
-            <p className="mt-16 text-[10px] uppercase tracking-[0.3em] text-mist">
-              Not sure? Just pick the closest — you can wander the rest.
+            <p className="mt-16 text-mist text-sm md:text-base italic font-serif">
+              Not sure? Just pick what feels right. We&rsquo;ll do the rest.
             </p>
           </div>
         </div>
       </section>
 
-      {/* CLOSING NOTE */}
-      <section className="py-32 md:py-44 border-t hairline">
+      {/* PŌMAIKA'I PRINCIPLES */}
+      <section className="py-32 md:py-48 border-t hairline">
         <div className="container-editorial">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-14">
-            <div className="md:col-span-5">
-              <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-8">
-                From the founder
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-14 mb-20 md:mb-28 items-end">
+            <div className="md:col-span-4">
+              <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-6">
+                Pōmaika&rsquo;i Principles
               </p>
             </div>
-            <div className="md:col-span-7">
-              <p className="font-serif text-2xl md:text-4xl text-cream leading-[1.15] text-balance">
-                Pomaika&rsquo;i means{" "}
-                <span className="italic text-cream">
-                  good fortune, abundance, blessing.
-                </span>{" "}
-                We built the ecosystem so founders don&rsquo;t have to piece one together alone.
-              </p>
-              <p className="mt-10 text-mist italic font-serif text-lg">
-                — Malachi, Founder
+            <div className="md:col-span-8">
+              <h2 className="font-serif text-display-md text-cream max-w-[20ch] text-balance leading-[1.02]">
+                Seven values. <span className="italic text-cream">One way of being.</span>
+              </h2>
+            </div>
+          </div>
+
+          <div className="border-t hairline">
+            {PRINCIPLES.map((p, i) => (
+              <motion.article
+                key={p.word}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.7, delay: i * 0.04, ease: [0.19, 1, 0.22, 1] }}
+                className="grid grid-cols-12 gap-6 md:gap-10 py-10 md:py-14 border-b hairline hover:bg-obsidian/30 transition-colors duration-500"
+              >
+                <div className="col-span-2 md:col-span-1 pt-2">
+                  <span className="font-serif italic text-mist text-base">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <div className="col-span-10 md:col-span-4">
+                  <p className="font-serif italic text-3xl md:text-5xl text-cream leading-[1.05] tracking-tight">
+                    {p.word}
+                  </p>
+                </div>
+                <div className="col-span-12 md:col-span-6 md:col-start-7 text-mist text-lg md:text-xl leading-[1.55] max-w-[52ch] flex flex-col justify-end">
+                  <p className="text-pretty">{p.body}</p>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* MISSION */}
+      <section className="py-32 md:py-48 border-t hairline bg-obsidian">
+        <div className="container-editorial">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-14 items-start">
+            <div className="md:col-span-4">
+              <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-6">
+                Mission
               </p>
             </div>
+            <div className="md:col-span-8">
+              <p className="font-serif italic text-3xl md:text-5xl text-cream leading-[1.1] text-balance">
+                To cultivate growth, create lasting value, empower people,
+                businesses, and communities to flourish in abundance.
+              </p>
+              <p className="mt-12 md:mt-16 text-mist text-lg md:text-xl leading-[1.6] max-w-[62ch] text-pretty">
+                At Pōmaika&rsquo;i, we know every business is at a different
+                stage of growth. Our partnerships are designed to meet you
+                where you are. Whether you&rsquo;re building a strong
+                foundation, accelerating momentum, or scaling for long-term
+                success. Every engagement is tailored to your unique goals and
+                supported by our integrated ecosystem.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PARTNERSHIP TIERS */}
+      <section id="partnerships" className="py-32 md:py-48 border-t hairline">
+        <div className="container-editorial">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-14 mb-20 md:mb-28 items-end">
+            <div className="md:col-span-4">
+              <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-6">
+                Partnerships
+              </p>
+            </div>
+            <div className="md:col-span-8">
+              <h2 className="font-serif text-display-md text-cream max-w-[20ch] text-balance leading-[1.02]">
+                Three tiers.{" "}
+                <span className="italic text-cream">Meet you where you are.</span>
+              </h2>
+            </div>
+          </div>
+
+          <div className="border-t hairline">
+            {TIERS.map((t, i) => (
+              <motion.article
+                key={t.name}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.75, delay: i * 0.05, ease: [0.19, 1, 0.22, 1] }}
+                className="grid grid-cols-12 gap-6 md:gap-10 py-12 md:py-20 border-b hairline hover:bg-obsidian/40 transition-colors duration-500"
+              >
+                <div className="col-span-2 md:col-span-1 pt-3">
+                  <span className="font-serif italic text-mist text-lg">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <div className="col-span-10 md:col-span-4">
+                  <h3 className="font-serif text-4xl md:text-6xl text-cream leading-[1.02] tracking-tight">
+                    {t.name}
+                  </h3>
+                  <p className="mt-4 text-[10px] uppercase tracking-[0.3em] text-bone/80">
+                    {t.price}
+                  </p>
+                </div>
+                <div className="col-span-12 md:col-span-6 md:col-start-7 text-mist text-lg leading-[1.55] max-w-[52ch] flex flex-col justify-end">
+                  <p className="text-pretty">{t.body}</p>
+                </div>
+              </motion.article>
+            ))}
+
+            {/* Ghost row — Creative Finance */}
+            <motion.article
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+              className="grid grid-cols-12 gap-6 md:gap-10 py-12 md:py-20 border-b hairline"
+            >
+              <div className="col-span-2 md:col-span-1 pt-3">
+                <span className="font-serif italic text-mist text-lg">04</span>
+              </div>
+              <div className="col-span-10 md:col-span-4">
+                <h3 className="font-serif text-4xl md:text-6xl text-cream/70 leading-[1.02] tracking-tight italic">
+                  {PARTNER_GHOST.name}
+                </h3>
+                <p className="mt-4 text-[10px] uppercase tracking-[0.3em] text-bone/70">
+                  {PARTNER_GHOST.price}
+                </p>
+              </div>
+              <div className="col-span-12 md:col-span-6 md:col-start-7 text-mist text-lg leading-[1.55] max-w-[52ch] flex flex-col justify-end">
+                <p className="text-pretty">{PARTNER_GHOST.body}</p>
+              </div>
+            </motion.article>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES BAND */}
+      <section className="py-32 md:py-44 border-t hairline bg-obsidian">
+        <div className="container-editorial">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-14 mb-14 md:mb-20 items-end">
+            <div className="md:col-span-4">
+              <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-6">
+                Services
+              </p>
+            </div>
+            <div className="md:col-span-8">
+              <p className="font-serif text-2xl md:text-3xl text-cream/90 max-w-[36ch] leading-[1.3] text-balance">
+                Every partnership is customized and may include:
+              </p>
+            </div>
+          </div>
+
+          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-4 md:gap-y-6 gap-x-10 border-t hairline pt-10">
+            {SERVICES.map((s, i) => (
+              <motion.li
+                key={s}
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.6, delay: i * 0.03, ease: [0.19, 1, 0.22, 1] }}
+                className="flex items-baseline gap-4 py-2 font-serif text-cream/85 text-lg md:text-xl"
+              >
+                <span className="font-serif italic text-mist text-sm w-6">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span>{s}</span>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* CTA BAND */}
+      <section className="relative py-36 md:py-52 border-t hairline overflow-hidden">
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(700px 320px at 50% 100%, rgba(232,226,211,0.06), transparent 60%)",
+          }}
+        />
+        <div className="container-editorial relative text-center">
+          <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-8">
+            Partnership · $500/mo
+          </p>
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.9, ease: [0.19, 1, 0.22, 1] }}
+            className="font-serif text-display-md text-cream max-w-[22ch] mx-auto text-balance leading-[1.02]"
+          >
+            Build. <span className="italic text-cream">A foundation that lasts.</span>
+          </motion.h2>
+          <div className="mt-14 md:mt-20 flex justify-center">
+            <a
+              href="mailto:info@pomaikai.co?subject=Partnership%20Request"
+              className="group inline-flex items-center gap-3 text-ink bg-cream px-8 py-4 text-[11px] uppercase tracking-[0.24em] hover:bg-bone transition-colors duration-300"
+            >
+              Request Access
+              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+            </a>
           </div>
         </div>
       </section>

@@ -5,11 +5,12 @@ import Wordmark from "../marks/Wordmark";
 
 const NAV = [
   { to: "/", label: "Home" },
-  { to: "/marketing", label: "Marketing" },
+  { to: "/growth", label: "Growth" },
+  { to: "/leadership", label: "Leadership" },
   { to: "/capital", label: "Capital" },
-  { to: "/coaching", label: "Coaching" },
-  { to: "/academy", label: "Academy" },
-  { to: "/partners", label: "Partners" },
+  { to: "/institute", label: "Institute" },
+  { to: "/collective", label: "Collective" },
+  { to: "/partnerships", label: "Partnerships" },
 ];
 
 export default function Header() {
@@ -67,10 +68,10 @@ export default function Header() {
 
         <div className="hidden lg:block">
           <a
-            href="/#survey"
+            href="mailto:info@pomaikai.co?subject=Partnership%20Request"
             className="group inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-cream border hairline-strong hover:border-cream hover:bg-cream hover:text-ink px-5 py-2.5 transition-all duration-300"
           >
-            Apply
+            Request Access
             <span className="w-4 h-px bg-cream group-hover:w-6 group-hover:bg-ink transition-all duration-300" />
           </a>
         </div>
@@ -106,10 +107,10 @@ export default function Header() {
             </NavLink>
           ))}
           <a
-            href="/#survey"
+            href="mailto:info@pomaikai.co?subject=Partnership%20Request"
             className="mt-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-ink bg-cream px-5 py-3 w-fit"
           >
-            Start Here
+            Request Access
           </a>
         </nav>
       </div>

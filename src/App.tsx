@@ -1,14 +1,15 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
-import Marketing from "./pages/Marketing";
+import Growth from "./pages/Growth";
 import Capital from "./pages/Capital";
-import Coaching from "./pages/Coaching";
-import Academy from "./pages/Academy";
-import Partners from "./pages/Partners";
+import Leadership from "./pages/Leadership";
+import Institute from "./pages/Institute";
+import Collective from "./pages/Collective";
+import Partnerships from "./pages/Partnerships";
 import NotFound from "./pages/NotFound";
 
 function ScrollToTop() {
@@ -29,11 +30,19 @@ function App() {
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
-            <Route path="/marketing" element={<Marketing />} />
+            <Route path="/growth" element={<Growth />} />
+            <Route path="/leadership" element={<Leadership />} />
             <Route path="/capital" element={<Capital />} />
-            <Route path="/coaching" element={<Coaching />} />
-            <Route path="/academy" element={<Academy />} />
-            <Route path="/partners" element={<Partners />} />
+            <Route path="/institute" element={<Institute />} />
+            <Route path="/collective" element={<Collective />} />
+            <Route path="/partnerships" element={<Partnerships />} />
+
+            {/* Legacy route redirects — Malachi renamed pages 2026-07-17. */}
+            <Route path="/marketing" element={<Navigate to="/growth" replace />} />
+            <Route path="/coaching" element={<Navigate to="/leadership" replace />} />
+            <Route path="/academy" element={<Navigate to="/institute" replace />} />
+            <Route path="/partners" element={<Navigate to="/collective" replace />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>

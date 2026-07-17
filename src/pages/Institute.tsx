@@ -6,28 +6,37 @@ import PillBadge from "../components/layout/PillBadge";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
+/**
+ * INSTITUTE — replaces the old /academy page.
+ * Content per Malachi 2026-07-17.
+ * Malachi's rough draft had a double-numbered 04 in the curriculum list.
+ * Renumbered cleanly 01–11 here.
+ */
 const TOPICS = [
   "Branding",
   "Marketing",
   "Sales",
+  "Conversions",
   "AI Systems",
   "Mindset",
+  "Efficiency",
   "Operations",
+  "Skillsets",
+  "Leverage",
   "Finance",
-  "Scaling",
 ];
 
-export default function Academy() {
+export default function Institute() {
   return (
     <PageTransition>
       <PageIntro
-        eyebrow="Academy"
+        eyebrow="Institute"
         title={
           <>
-            Learn. Implement. <span className="italic text-cream">Scale.</span>
+            Learn. Know. <span className="italic text-cream">Grow.</span>
           </>
         }
-        subtitle="Courses, workshops, templates. Built by founders shipping."
+        subtitle="Courses, workshops, templates, advisory, community. Everything necessary to support your growth."
       />
 
       {/* INTUITION INNER TEACHING — inner circle callout */}
@@ -48,22 +57,25 @@ export default function Academy() {
                 <PillBadge>Waitlist Only</PillBadge>
               </div>
               <h2 className="font-serif text-display-md text-cream leading-[1.02] tracking-tight text-balance">
-                Intuition <span className="italic text-cream">Inner Teaching.</span>
+                Intuition.{" "}
+                <span className="italic text-cream">
+                  Inner Teaching, Inner Guidance.
+                </span>
               </h2>
             </div>
             <div className="md:col-span-7">
               <p className="font-serif text-2xl md:text-3xl text-cream leading-[1.2] text-balance">
-                Weekly broadcast. Direct access. A quiet room.
+                Weekly broadcast. Direct access. Library of knowledge.
               </p>
               <div className="mt-10 flex flex-wrap items-baseline gap-4">
                 <span className="font-serif text-4xl md:text-5xl text-cream tracking-tight">
                   $500
                 </span>
-                <span className="text-mist text-lg">/ month · membership</span>
+                <span className="text-mist text-lg">/ month · partnership</span>
               </div>
               <div className="mt-12">
                 <a
-                  href="mailto:hello@pomaikai.co?subject=Intuition%20Inner%20Teaching%20Waitlist"
+                  href="mailto:info@pomaikai.co?subject=Intuition%20Waitlist"
                   className="group inline-flex items-center gap-3 text-ink bg-cream px-8 py-4 text-[11px] uppercase tracking-[0.24em] hover:bg-bone transition-colors duration-300"
                 >
                   Join the Waitlist
@@ -76,46 +88,46 @@ export default function Academy() {
       </section>
 
       <PillarList
-        eyebrow="Inside the academy"
-        heading={<>Practical curriculum for practicing operators.</>}
+        eyebrow="Inside look"
+        heading={
+          <>
+            <span className="italic text-cream">Practice real-life application</span> of knowledge.
+          </>
+        }
         pillars={[
           {
             index: "01",
-            title: "Courses",
-            meta: "Step by step",
-            body: "Marketing, systems, capital, mindset. Watch. Apply. Ship.",
+            title: "Education",
+            meta: "Courses · Workshops",
+            body: "Courses, workshops.",
           },
           {
             index: "02",
-            title: "Templates",
-            meta: "Plug and play",
-            body: "Sales scripts, ad frameworks, ops docs, financial models.",
+            title: "Application",
+            meta: "Science-backed",
+            body: "Science-backed application of acquired knowledge.",
           },
           {
             index: "03",
-            title: "Workshops",
-            meta: "Live sessions",
-            body: "Small rooms. Live training. Real answers.",
-          },
-          {
-            index: "04",
             title: "Community",
-            meta: "Peer network",
-            body: "Deals, warm intros, feedback from people who've done it.",
+            meta: "Founders · Curriculum",
+            body: "Direct access to founders, courses, curriculum, opportunities.",
           },
         ]}
       />
 
-      {/* POPULAR TOPICS */}
+      {/* CURRICULUM — 11 topics, cleanly renumbered */}
       <section className="py-32 md:py-48 border-t hairline bg-obsidian">
         <div className="container-editorial">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-14 items-end mb-16 md:mb-24">
             <div className="md:col-span-4">
-              <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-6">Curriculum</p>
+              <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-6">
+                Curriculum
+              </p>
             </div>
             <div className="md:col-span-8">
               <h2 className="font-serif text-display-md text-cream max-w-[18ch] text-balance leading-[1.02]">
-                Topics founders keep returning to.
+                The foundational topics.
               </h2>
             </div>
           </div>
@@ -145,10 +157,10 @@ export default function Academy() {
       </section>
 
       <CtaBand
-        eyebrow="The library"
-        title="Browse the Academy."
-        ctaLabel="Browse Academy"
-        href="mailto:hello@pomaikai.co?subject=Academy%20Access"
+        eyebrow="The Library"
+        title="Explore the Institute."
+        ctaLabel="Explore Institute"
+        href="#"
       />
     </PageTransition>
   );

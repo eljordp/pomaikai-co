@@ -3,71 +3,88 @@ import PageIntro from "../components/layout/PageIntro";
 import ProjectGrid from "../components/layout/ProjectGrid";
 import IGTile from "../components/layout/IGTile";
 import CtaBand from "../components/layout/CtaBand";
-import PillBadge from "../components/layout/PillBadge";
 import { motion } from "framer-motion";
 
-export default function Marketing() {
+/**
+ * GROWTH — replaces the old /marketing page.
+ * Content per Malachi 2026-07-17.
+ */
+export default function Growth() {
   return (
     <PageTransition>
       <PageIntro
-        eyebrow="Marketing"
+        eyebrow="Growth"
         title={
           <>
-            Marketing that <span className="italic text-cream">actually ships.</span>
+            Marketing that <span className="italic text-cream">compounds.</span>
           </>
         }
-        subtitle="Websites, content, ads, AI. Built for founders."
+        subtitle="Websites, SEO, Content, Ads, AI, Lead Gen, and more. All the essentials."
       />
 
-      {/* PORTFOLIO GRID — the centerpiece */}
-      <ProjectGrid />
+      {/* PARTNER PORTFOLIO — three JDLO-built partner sites. */}
+      <section className="py-32 md:py-44 border-t hairline">
+        <div className="container-editorial">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-14 mb-16 md:mb-24 items-end">
+            <div className="md:col-span-4">
+              <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-6">
+                Built for Growth
+              </p>
+            </div>
+            <div className="md:col-span-8">
+              <h2 className="font-serif text-display-md text-cream max-w-[20ch] text-balance leading-[1.02]">
+                Real founders. Real sites.{" "}
+                <span className="italic text-cream">Shipped.</span>
+              </h2>
+            </div>
+          </div>
 
-      {/* IG-POST-STYLE CASE STUDY TILES */}
+          <ProjectGrid bare />
+
+          <p className="mt-14 font-serif italic text-mist text-base md:text-lg max-w-[52ch]">
+            Built custom tailored in partnership with JDLO AI.
+          </p>
+          <p className="mt-3 text-[10px] uppercase tracking-[0.3em] text-mist">
+            More info upon request · info@pomaikai.co
+          </p>
+        </div>
+      </section>
+
+      {/* SOCIAL MEDIA CONTENT — 3 IG tiles */}
       <section className="py-32 md:py-44 border-t hairline bg-obsidian">
         <div className="container-editorial">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-14 mb-16 md:mb-24 items-end">
             <div className="md:col-span-4">
               <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-6">
-                Field notes
+                Social Media Content
               </p>
             </div>
             <div className="md:col-span-8">
               <h2 className="font-serif text-display-md text-cream max-w-[18ch] text-balance leading-[1.02]">
-                Case studies. Built in public.
+                Three posts. One voice.
               </h2>
             </div>
           </div>
 
-          {/*
-            PLACEHOLDER: These are IG-post-styled tiles, NOT real embeds.
-            Handle @pomaikaico is a placeholder until real IG accounts are wired.
-            Swap in real oEmbed markup once the accounts exist.
-
-            Only projects delivered under the Pomaika'i brand. Do not swap in
-            JDLO independent freelance work. Ask JP before adding anything new.
-            Pass `image` prop when Malachi sends per-section imagery.
-          */}
+          {/* PLACEHOLDER: pass `image` prop when Malachi sends imagery. */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             <IGTile
               index={0}
-              title="Waimea Lamb Co."
-              caption="Family ranch. Full storefront."
-              badge="JDLO AI"
-              href="https://waimea-lamb-co.vercel.app"
+              title="Real founders. Real sites."
+              caption="Built for the Hawai'i economy — one storefront at a time."
+              badge="Growth"
             />
             <IGTile
               index={1}
-              title="Aesthetics by Kayy"
-              caption="Beauty studio. Booking flow live."
-              badge="JDLO AI"
-              href="https://adorned-landing.vercel.app"
+              title="Ads that move."
+              caption="Local reach, ROAS you can point at."
+              badge="Ads"
             />
             <IGTile
               index={2}
-              title="Reese VIP"
-              caption="AI concierge for a growing roster."
-              badge="JDLO AI"
-              href="https://reesvip.com"
+              title="AI that saves hours."
+              caption="Chat, capture, book — automated."
+              badge="AI"
             />
           </div>
 
@@ -77,29 +94,28 @@ export default function Marketing() {
         </div>
       </section>
 
-      {/* FOUR PRACTICES — condensed row */}
+      {/* THREE PILLARS */}
       <section className="py-32 md:py-44 border-t hairline">
         <div className="container-editorial">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-14 mb-16 md:mb-24 items-end">
             <div className="md:col-span-4">
               <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-6">
-                What we build
+                Services
               </p>
-              <PillBadge>Built by JDLO AI</PillBadge>
             </div>
             <div className="md:col-span-8">
               <h2 className="font-serif text-display-md text-cream max-w-[16ch] text-balance leading-[1.02]">
-                Four practices. One system.
+                Whatever your business{" "}
+                <span className="italic text-cream">needs.</span>
               </h2>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-l hairline">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-l hairline">
             {[
-              { label: "Websites", meta: "Design + Dev" },
-              { label: "Content & Social", meta: "Voice + Cadence" },
-              { label: "Ads & Lead Gen", meta: "Paid + Inbound" },
-              { label: "AI Automation", meta: "Systems + Agents" },
+              { label: "Websites", meta: "Design · SEO · Ads · Lead Gen" },
+              { label: "Content & Social Media", meta: "Branding · Positioning · Optimization" },
+              { label: "AI Integration", meta: "Systems · Agents · Automation" },
             ].map((p, i) => (
               <motion.div
                 key={p.label}
@@ -113,7 +129,7 @@ export default function Marketing() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
-                  <p className="font-serif text-4xl md:text-6xl text-cream leading-[1.02] tracking-tight">
+                  <p className="font-serif text-3xl md:text-5xl text-cream leading-[1.02] tracking-tight">
                     {p.label}
                   </p>
                   <p className="mt-4 text-[10px] uppercase tracking-[0.3em] text-mist">
@@ -127,11 +143,12 @@ export default function Marketing() {
       </section>
 
       <CtaBand
-        eyebrow="Ready to ship"
+        eyebrow="Ready to grow?"
         title="Let's build your next site."
         ctaLabel="Start a project"
-        href="mailto:hello@pomaikai.co?subject=Marketing%20Packages"
+        href="mailto:info@pomaikai.co?subject=Growth%20Project"
       />
     </PageTransition>
   );
 }
+

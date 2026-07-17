@@ -40,7 +40,28 @@ function formatDomain(url: string): string {
   return url.replace(/^https?:\/\//, "").replace(/\/$/, "");
 }
 
-export default function ProjectGrid({ projects = DEFAULT_PROJECTS }: { projects?: Project[] }) {
+/**
+ * When `bare` is true, renders only the tile grid — no section wrapper,
+ * eyebrow, heading, or footer text. Growth page uses this so it can supply
+ * its own editorial framing above the grid.
+ */
+export default function ProjectGrid({
+  projects = DEFAULT_PROJECTS,
+  bare = false,
+}: {
+  projects?: Project[];
+  bare?: boolean;
+}) {
+  if (bare) {
+    return (
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 border-t border-l hairline">
+        {projects.map((p, i) => (
+          <ProjectTile key={p.name} project={p} index={i} />
+        ))}
+      </div>
+    );
+  }
+
   return (
     <section className="py-32 md:py-44 border-t hairline">
       <div className="container-editorial">
@@ -67,7 +88,7 @@ export default function ProjectGrid({ projects = DEFAULT_PROJECTS }: { projects?
         </p>
 
         <p className="mt-8 text-[10px] uppercase tracking-[0.3em] text-mist">
-          Case study PDFs on request · hello@pomaikai.co
+          Case study PDFs on request · info@pomaikai.co
         </p>
       </div>
     </section>
