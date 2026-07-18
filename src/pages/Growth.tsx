@@ -5,28 +5,36 @@ import IGTile from "../components/layout/IGTile";
 import CtaBand from "../components/layout/CtaBand";
 import { motion } from "framer-motion";
 
-/** AI systems JP has shipped under JDLO — live products, not case studies. */
+/**
+ * AI systems JP has shipped under JDLO — live products.
+ * Tiles route to internal /growth/systems/:slug detail pages (case-study
+ * style writeups). The live product link is inside the detail page as
+ * an understated "See it live →" footer element.
+ */
 const SYSTEMS = [
   {
     name: "DHL Translator",
     niche: "B2B · Real-time Translation",
-    href: "https://cubicship-translator.vercel.app",
+    href: "/growth/systems/dhl-translator",
     badge: "JDLO AI",
     image: "/portfolio/dhl-translator.png",
+    internal: true,
   },
   {
     name: "Outreach Engine",
     niche: "Sales · Automation",
-    href: "https://outreach-engine-pearl-pi.vercel.app",
+    href: "/growth/systems/outreach-engine",
     badge: "JDLO AI",
     image: "/portfolio/outreach-engine.png",
+    internal: true,
   },
   {
     name: "JDLO CRM",
     niche: "Ops · AI-Powered",
-    href: "https://jdlo-crm.vercel.app",
+    href: "/growth/systems/jdlo-crm",
     badge: "JDLO AI",
     image: "/portfolio/jdlo-crm.png",
+    internal: true,
   },
 ];
 

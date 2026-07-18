@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import PillBadge from "./PillBadge";
 
@@ -10,6 +11,12 @@ type Project = {
   badge?: string;
   /** Optional screenshot URL — falls back to gradient tile if omitted. */
   image?: string;
+  /**
+   * When true, tile routes internally via React Router <Link> instead of
+   * opening the href in a new tab. Used for /growth/systems/:slug detail
+   * pages so we own the click before handing off to the live product.
+   */
+  internal?: boolean;
 };
 
 /**
@@ -102,17 +109,21 @@ function ProjectTile({ project, index }: { project: Project; index: number }) {
     "linear-gradient(120deg, #1a1a1a 0%, #2e2820 50%, #1a1a1a 100%)",
   ][index % 3];
 
-  return (
-    <motion.a
-      href={project.href}
-      target="_blank"
-      rel="noreferrer noopener"
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.7, delay: (index % 3) * 0.05, ease: [0.19, 1, 0.22, 1] }}
-      className="group relative block border-r border-b hairline overflow-hidden hover:bg-obsidian/40 transition-colors duration-500"
-    >
+  const motionProps = {
+    initial: { opacity: 0, y: 16 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-60px" },
+    transition: {
+      duration: 0.7,
+      delay: (index % 3) * 0.05,
+      ease: [0.19, 1, 0.22, 1] as [number, number, number, number],
+    },
+    className:
+      "group relative block border-r border-b hairline overflow-hidden hover:bg-obsidian/40 transition-colors duration-500",
+  } as const;
+
+  const inner = (
+    <>
       {/* Visual — shorter on mobile (16:10) so 9 stacked tiles don't scroll forever */}
       <div
         className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden"
@@ -144,7 +155,7 @@ function ProjectTile({ project, index }: { project: Project; index: number }) {
               {project.niche}
             </p>
             <p className="mt-3 text-[9px] uppercase tracking-[0.28em] text-cream/40 truncate">
-              {formatDomain(project.href)}
+              {project.internal ? "Case study →" : formatDomain(project.href)}
             </p>
           </div>
         </div>
@@ -177,6 +188,28 @@ function ProjectTile({ project, index }: { project: Project; index: number }) {
           {String(index + 1).padStart(2, "0")} →
         </span>
       </div>
+    </>
+  );
+
+  // Internal tile → React Router Link. External tile → new-tab anchor.
+  if (project.internal) {
+    return (
+      <motion.div {...motionProps}>
+        <Link to={project.href} className="block">
+          {inner}
+        </Link>
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.a
+      href={project.href}
+      target="_blank"
+      rel="noreferrer noopener"
+      {...motionProps}
+    >
+      {inner}
     </motion.a>
   );
 }

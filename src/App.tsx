@@ -5,6 +5,7 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
 import Growth from "./pages/Growth";
+import SystemDetail from "./pages/SystemDetail";
 import Capital from "./pages/Capital";
 import Leadership from "./pages/Leadership";
 import Institute from "./pages/Institute";
@@ -31,6 +32,7 @@ function App() {
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
             <Route path="/growth" element={<Growth />} />
+            <Route path="/growth/systems/:slug" element={<SystemDetail />} />
             <Route path="/leadership" element={<Leadership />} />
             <Route path="/capital" element={<Capital />} />
             <Route path="/institute" element={<Institute />} />
