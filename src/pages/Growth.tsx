@@ -5,6 +5,31 @@ import IGTile from "../components/layout/IGTile";
 import CtaBand from "../components/layout/CtaBand";
 import { motion } from "framer-motion";
 
+/** AI systems JP has shipped under JDLO — live products, not case studies. */
+const SYSTEMS = [
+  {
+    name: "DHL Translator",
+    niche: "B2B · Real-time Translation",
+    href: "https://cubicship-translator.vercel.app",
+    badge: "JDLO AI",
+    image: "/portfolio/dhl-translator.png",
+  },
+  {
+    name: "Outreach Engine",
+    niche: "Sales · Automation",
+    href: "https://outreach-engine-pearl-pi.vercel.app",
+    badge: "JDLO AI",
+    image: "/portfolio/outreach-engine.png",
+  },
+  {
+    name: "JDLO CRM",
+    niche: "Ops · AI-Powered",
+    href: "https://jdlo-crm.vercel.app",
+    badge: "JDLO AI",
+    image: "/portfolio/jdlo-crm.png",
+  },
+];
+
 /**
  * GROWTH — replaces the old /marketing page.
  * Content per Malachi 2026-07-17.
@@ -98,6 +123,41 @@ export default function Growth() {
 
           <p className="mt-12 text-[10px] uppercase tracking-[0.3em] text-mist">
             IG embeds landing soon · @pomaikaico
+          </p>
+        </div>
+      </section>
+
+      {/* SYSTEMS IN PRODUCTION — live AI systems JP has shipped */}
+      <section className="py-32 md:py-44 border-t hairline">
+        <div className="container-editorial">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-14 mb-16 md:mb-24 items-end">
+            <div className="md:col-span-4">
+              <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-6">
+                Systems in Production
+              </p>
+            </div>
+            <div className="md:col-span-8">
+              <h2 className="font-serif text-display-md text-cream max-w-[20ch] text-balance leading-[1.02]">
+                AI that <span className="italic text-cream">actually ships.</span>
+              </h2>
+            </div>
+          </div>
+
+          <ProjectGrid projects={SYSTEMS} bare />
+
+          <p className="mt-14 font-serif italic text-mist text-base md:text-lg max-w-[52ch]">
+            Live products in production. Built and maintained by{" "}
+            <a
+              href="https://jdlo.site"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-cream border-b border-cream/40 hover:border-cream transition-colors"
+            >
+              JDLO AI
+            </a>.
+          </p>
+          <p className="mt-3 text-[10px] uppercase tracking-[0.3em] text-mist">
+            Custom systems available · info@pomaikai.co
           </p>
         </div>
       </section>
