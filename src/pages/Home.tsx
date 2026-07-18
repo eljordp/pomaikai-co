@@ -149,9 +149,7 @@ export default function Home() {
                 transition={{ duration: 1, delay: 0.1, ease: [0.19, 1, 0.22, 1] }}
                 className="font-serif text-display-xl text-cream leading-[0.94] max-w-[16ch] text-balance"
               >
-                Built For Hawai&rsquo;i.
-                <br />
-                <span className="italic text-cream">Built For Growth.</span>
+                Built For <span className="italic text-cream">Hawai&rsquo;i.</span>
               </motion.h1>
 
               <motion.p
@@ -168,20 +166,20 @@ export default function Home() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.45, ease: [0.19, 1, 0.22, 1] }}
-                className="mt-14 md:mt-20 flex flex-wrap items-center gap-6"
+                className="mt-14 md:mt-20 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-6"
               >
                 <a
                   href="#partnerships"
-                  className="group inline-flex items-center gap-3 text-ink bg-cream px-7 py-4 text-[11px] uppercase tracking-[0.24em] hover:bg-bone transition-colors duration-300"
+                  className="group inline-flex items-center justify-center sm:justify-start gap-3 text-ink bg-cream px-7 py-4 text-[11px] uppercase tracking-[0.24em] hover:bg-bone transition-colors duration-300"
                 >
                   Partner With Us
                   <ArrowDown size={15} className="group-hover:translate-y-0.5 transition-transform duration-300" />
                 </a>
                 <a
                   href="#ecosystem"
-                  className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.24em] text-cream/85 hover:text-cream transition-colors duration-300 underline underline-offset-8 decoration-cream/20 hover:decoration-cream/70"
+                  className="inline-flex items-center justify-center sm:justify-start gap-2 text-[11px] uppercase tracking-[0.24em] text-cream/85 hover:text-cream transition-colors duration-300 underline underline-offset-8 decoration-cream/20 hover:decoration-cream/70"
                 >
-                  Explore Ecosystem
+                  Enter The Ecosystem
                   <ArrowUpRight size={15} />
                 </a>
               </motion.div>
@@ -193,7 +191,6 @@ export default function Home() {
                 transition={{ duration: 0.9, delay: 0.6, ease: [0.19, 1, 0.22, 1] }}
                 className="mt-16 md:mt-24 flex flex-wrap items-center gap-3"
               >
-                <PillBadge>5+ Pathways</PillBadge>
                 <PillBadge>Value-Based Ecosystem</PillBadge>
                 <PillBadge>Hawai&rsquo;i First</PillBadge>
                 <PillBadge>1 Mission. Growth.</PillBadge>
@@ -203,6 +200,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ROTATING TESTIMONIALS BAND — placeholders until Malachi sends real quotes.
+          Sits directly below the hero per Malachi's July 17 note:
+          "Reviews right off the bat, right below the header." */}
+      <TestimonialsBand />
+
       {/* MEANING BAND — subtle single-line, hairline rule above */}
       <section className="border-t hairline">
         <div className="container-editorial py-8 md:py-10">
@@ -211,9 +213,6 @@ export default function Home() {
           </p>
         </div>
       </section>
-
-      {/* ROTATING TESTIMONIALS BAND — placeholders until Malachi sends real quotes */}
-      <TestimonialsBand />
 
       {/* METRICS STRIP */}
       <MetricsStrip />
@@ -395,36 +394,44 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border-t hairline">
+          {/* 3 vertical tier cards — IG-post-style tiles, side by side on desktop */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
             {TIERS.map((t, i) => (
               <motion.article
                 key={t.name}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.75, delay: i * 0.05, ease: [0.19, 1, 0.22, 1] }}
-                className="grid grid-cols-12 gap-6 md:gap-10 py-12 md:py-20 border-b hairline hover:bg-obsidian/40 transition-colors duration-500"
+                transition={{ duration: 0.75, delay: i * 0.08, ease: [0.19, 1, 0.22, 1] }}
+                className="group relative flex flex-col justify-between min-h-[420px] md:min-h-[520px] p-10 md:p-12 border hairline-strong bg-obsidian/20 hover:bg-obsidian/50 transition-colors duration-500"
               >
-                <div className="col-span-2 md:col-span-1 pt-3">
-                  <span className="font-serif italic text-mist text-lg">
+                <div className="flex items-start justify-between">
+                  <span className="font-serif italic text-mist text-base">
                     {String(i + 1).padStart(2, "0")}
                   </span>
+                  <ArrowUpRight
+                    size={16}
+                    className="text-cream/40 group-hover:text-cream/90 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-500"
+                  />
                 </div>
-                <div className="col-span-10 md:col-span-4">
-                  <h3 className="font-serif text-4xl md:text-6xl text-cream leading-[1.02] tracking-tight">
+
+                <div className="mt-16">
+                  <h3 className="font-serif text-4xl md:text-5xl text-cream leading-[1.02] tracking-tight">
                     {t.name}
                   </h3>
-                  <p className="mt-4 text-[10px] uppercase tracking-[0.3em] text-bone/80">
+                  <p className="mt-5 text-[11px] uppercase tracking-[0.28em] text-mist">
                     {t.price}
                   </p>
-                </div>
-                <div className="col-span-12 md:col-span-6 md:col-start-7 text-mist text-lg leading-[1.55] max-w-[52ch] flex flex-col justify-end">
-                  <p className="text-pretty">{t.body}</p>
+                  <p className="mt-8 text-mist text-base md:text-lg leading-[1.6] text-pretty max-w-[38ch]">
+                    {t.body}
+                  </p>
                 </div>
               </motion.article>
             ))}
+          </div>
 
-            {/* Ghost row — Creative Finance */}
+          {/* Ghost row — Creative Finance (stays as hairline row below the 3 cards) */}
+          <div className="mt-10 md:mt-14 border-t hairline">
             <motion.article
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}

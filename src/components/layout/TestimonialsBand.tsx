@@ -42,6 +42,33 @@ export default function TestimonialsBand() {
             </p>
           </div>
           <div className="md:col-span-9 min-h-[220px] md:min-h-[280px] relative">
+            {/* 5 hairline outline stars — cream color, ~24px. Placeholder review count
+                until Malachi confirms Google Business Profile figures. */}
+            <div className="mb-8 md:mb-10 flex items-center gap-3">
+              <div className="flex items-center gap-1.5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg
+                    key={i}
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-cream"
+                    aria-hidden
+                  >
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
+                ))}
+              </div>
+              <span className="text-[10px] uppercase tracking-[0.28em] text-mist">
+                Based on — reviews
+              </span>
+            </div>
+
             <AnimatePresence mode="wait">
               <motion.blockquote
                 key={index}
