@@ -30,9 +30,9 @@ type Project = {
 // Badge label "JDLO AI" → PillBadge renders as a link to jdlo.site so credit
 // is clickable, but the main tile still routes to the client's live site.
 const DEFAULT_PROJECTS: Project[] = [
-  { name: "Waimea Lamb Co.", niche: "Agriculture · Storefront", href: "https://waimea-lamb-co.vercel.app", badge: "JDLO AI" },
-  { name: "Aesthetics by Kayy", niche: "Beauty · Booking", href: "https://adorned-landing.vercel.app", badge: "JDLO AI" },
-  { name: "Reese VIP", niche: "AI · Concierge", href: "https://reesvip.com", badge: "JDLO AI" },
+  { name: "Waimea Lamb Co.", niche: "Agriculture · Storefront", href: "https://waimea-lamb-co.vercel.app", badge: "JDLO AI", image: "/portfolio/waimea-lamb.png" },
+  { name: "Aesthetics by Kayy", niche: "Beauty · Booking", href: "https://www.aestheticsbykayy.com", badge: "JDLO AI", image: "/portfolio/kayy.png" },
+  { name: "Reese VIP", niche: "AI · Concierge", href: "https://reesvip.com", badge: "JDLO AI", image: "/portfolio/reesvip.png" },
 ];
 
 /** Strip protocol and trailing slash so tiles display "waimea-lamb-co.vercel.app". */
@@ -118,13 +118,14 @@ function ProjectTile({ project, index }: { project: Project; index: number }) {
         className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden"
         style={{ background: seedGradient }}
       >
-        {/* Thumbnail attempt — hides on error via onError handler */}
+        {/* Real screenshot when project.image is set — falls back to /og-image.png discovery,
+            then to the number+name+niche fallback below. */}
         <img
-          src={`${project.href.replace(/\/$/, "")}/og-image.png`}
-          alt=""
+          src={project.image || `${project.href.replace(/\/$/, "")}/og-image.png`}
+          alt={`${project.name} — case study preview`}
           loading="lazy"
           className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:scale-[1.02] transition-transform duration-[900ms] ease-editorial"
-          onLoad={(e) => ((e.currentTarget as HTMLImageElement).style.opacity = "0.9")}
+          onLoad={(e) => ((e.currentTarget as HTMLImageElement).style.opacity = "1")}
           onError={(e) => ((e.currentTarget as HTMLImageElement).style.display = "none")}
         />
         {/* Fallback: giant number + niche + name + domain — designed as intentional content, not empty state.

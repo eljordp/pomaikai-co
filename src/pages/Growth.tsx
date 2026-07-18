@@ -42,7 +42,15 @@ export default function Growth() {
           <ProjectGrid bare />
 
           <p className="mt-14 font-serif italic text-mist text-base md:text-lg max-w-[52ch]">
-            Built custom tailored in partnership with JDLO AI.
+            Built custom tailored in partnership with{" "}
+            <a
+              href="https://jdlo.site"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-cream border-b border-cream/40 hover:border-cream transition-colors"
+            >
+              JDLO AI
+            </a>.
           </p>
           <p className="mt-3 text-[10px] uppercase tracking-[0.3em] text-mist">
             More info upon request · info@pomaikai.co
@@ -113,9 +121,9 @@ export default function Growth() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-l hairline">
             {[
-              { label: "Websites", meta: "Design · SEO · Ads · Lead Gen" },
+              { label: "Websites", meta: "Design · SEO · Ads · Lead Gen", credit: "Built by JDLO AI" },
               { label: "Content & Social Media", meta: "Branding · Positioning · Optimization" },
-              { label: "AI Integration", meta: "Systems · Agents · Automation" },
+              { label: "AI Integration", meta: "Systems · Agents · Automation", credit: "Built by JDLO AI" },
             ].map((p, i) => (
               <motion.div
                 key={p.label}
@@ -135,10 +143,33 @@ export default function Growth() {
                   <p className="mt-4 text-[10px] uppercase tracking-[0.3em] text-mist">
                     {p.meta}
                   </p>
+                  {p.credit && (
+                    <a
+                      href="https://jdlo.site"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="mt-6 inline-block text-[10px] uppercase tracking-[0.3em] text-cream/70 hover:text-cream border-b border-cream/30 hover:border-cream transition-all pb-0.5"
+                    >
+                      {p.credit} →
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}
           </div>
+
+          {/* Closing JDLO credit line — bottom of services section */}
+          <p className="mt-16 text-center text-[10px] uppercase tracking-[0.35em] text-mist">
+            Every Pōmaika&rsquo;i site engineered by{" "}
+            <a
+              href="https://jdlo.site"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-cream border-b border-cream/40 hover:border-cream transition-colors pb-0.5"
+            >
+              JDLO AI
+            </a>
+          </p>
         </div>
       </section>
 
