@@ -118,13 +118,24 @@ export default function Home() {
         >
           <div
             className="absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(1400px 700px at 15% 15%, rgba(232,226,211,0.06), transparent 60%), radial-gradient(1200px 600px at 90% 90%, rgba(232,226,211,0.04), transparent 65%), linear-gradient(180deg, #0a0a0a 0%, #0a0a0a 60%, #0e0d0b 100%)",
-            }}
-          />
+          >
+            {/* Hawaiian valley header photo */}
+            <img
+              src="/hawaii-valley-hero.jpg"
+              alt="Hawai'i valley — Pōmaika'i Co"
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="eager"
+            />
+            {/* Dark editorial wash + radial glows on top of the photo */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(1400px 700px at 15% 15%, rgba(232,226,211,0.05), transparent 60%), radial-gradient(1200px 600px at 90% 90%, rgba(232,226,211,0.03), transparent 65%), linear-gradient(180deg, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.85) 55%, rgba(14,13,11,0.94) 100%)",
+              }}
+            />
+          </motion.div>
           <div className="absolute left-0 right-0 top-[62%] h-px rule opacity-60" />
-        </motion.div>
 
         <div className="container-editorial relative pb-24 md:pb-32 pt-40 md:pt-56 w-full">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
