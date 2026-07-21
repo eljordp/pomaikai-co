@@ -14,7 +14,7 @@ export type Testimonial = {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "Pomaika’i put me in rooms I could not have opened on my own. Real founders, real projects, and a partner who moves with vision and follows through. Building inside this ecosystem leveled up my company and sharpened everything I do. The proof is on every page of this site.",
+      "When I connected with Pomaika’i, I was building fast but building alone. The partnership put real founders and real projects in front of me, and every single one pushed my company to another level. Beyond the builds, working inside this ecosystem sharpened my standards, my discipline, and the way I run my business every day. What started as one website turned into a portfolio of live businesses across Hawai’i and the mainland. If you bring real work to the table, Pomaika’i matches it.",
     name: "JDLO",
     role: "Partner",
     href: "https://jdlo.site",
