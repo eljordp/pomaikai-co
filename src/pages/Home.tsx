@@ -136,11 +136,6 @@ export default function Home() {
 
         <div className="container-editorial relative pb-24 md:pb-32 pt-40 md:pt-56 w-full">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
-            <div className="md:col-span-1 md:col-start-1 hidden md:block">
-              <p className="text-[10px] uppercase tracking-[0.35em] text-mist rotate-180 [writing-mode:vertical-rl]">
-                Est. 2024 · Hawai&rsquo;i
-              </p>
-            </div>
             <div className="md:col-span-11">
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
@@ -190,18 +185,6 @@ export default function Home() {
                   Enter The Ecosystem
                   <ArrowUpRight size={15} />
                 </a>
-              </motion.div>
-
-              {/* HAIRLINE PILL BADGES */}
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.9, delay: 0.6, ease: [0.19, 1, 0.22, 1] }}
-                className="mt-16 md:mt-24 flex flex-wrap items-center gap-3"
-              >
-                <PillBadge>Value-Based Ecosystem</PillBadge>
-                <PillBadge>Hawai&rsquo;i First</PillBadge>
-                <PillBadge>1 Mission. Growth.</PillBadge>
               </motion.div>
             </div>
           </div>
