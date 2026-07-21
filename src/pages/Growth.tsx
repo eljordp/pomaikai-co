@@ -1,5 +1,6 @@
 import PageTransition from "../components/layout/PageTransition";
 import PageIntro from "../components/layout/PageIntro";
+import SectorQuote from "../components/layout/SectorQuote";
 import ProjectGrid from "../components/layout/ProjectGrid";
 import IGTile from "../components/layout/IGTile";
 import CtaBand from "../components/layout/CtaBand";
@@ -53,7 +54,10 @@ export default function Growth() {
           </>
         }
         subtitle="Websites, SEO, Content, Ads, AI, Lead Gen, and more. All the essentials."
+        image={{ src: "/headers/growth.jpg", alt: "Taro fields beneath the Ko'olau mountains" }}
       />
+
+      <SectorQuote sector="growth" />
 
       {/* PARTNER PORTFOLIO — three JDLO-built partner sites. */}
       <section className="py-32 md:py-44 border-t hairline">

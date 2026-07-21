@@ -1,39 +1,53 @@
-// Malachi to send 7 real quotes with names + consent.
-// Replace placeholders in `src/data/testimonials.ts` once approved.
-//
-// Format each real entry as:
-//   { quote: "The real quote...", name: "Full Name", role: "Optional role · Location" }
-//
-// Until then, we ship restrained placeholders. NEVER swap these for fabricated quotes.
+// Real quotes per Malachi iMessage 2026-07-20.
+// Waimea Lamb quote is Malachi's paraphrase of what the client tells him —
+// official version lands after his Thursday meeting. Swap it then.
+// JDLO quote drafted by Claude in JP's voice — JP to approve or rewrite.
 
 export type Testimonial = {
   quote: string;
   name?: string;
   role?: string;
+  sector?: "growth" | "leadership" | "capital" | "institute" | "collective";
 };
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    quote: "Testimonials rolling in. Founders across Waimea, Hilo, and the Bay Area. Quotes drop after their consent.",
-    name: "The Room",
-    role: "Pomaika'i Ecosystem",
+    quote:
+      "Beyond grateful and appreciative of Pomaika’i. The patience, clear communication, efficiency, and value provided are truly immeasurable. The growth has been conclusive.",
+    name: "Waimea Lamb Company",
+    role: "Growth",
+    sector: "growth",
   },
   {
-    quote: "Testimonial from a Waimea agriculture operator — coming soon.",
+    quote:
+      "Pomaika’i exceeded my expectations. They gave me strategic guidance on intentional content creation, helped me build a growth oriented mindset, and delivered real, practical financial literacy. Their approach is structured, disciplined, and built for long term sustainability. If you’re serious about personal and professional development, Pomaika’i is the move.",
+    name: "Miss Hawai’i Island USA",
+    role: "Leadership",
+    sector: "leadership",
   },
   {
-    quote: "Testimonial from a Big Island coaching client — coming soon.",
+    quote:
+      "Before Pomaika’i, I had no idea how much money I was leaving on the table. They helped me identify my highest leverage areas and build step by step plans for execution. Beyond capital strategy, we worked together to cultivate a self disciplined mindset. I reconnected with my value, and the things that once cost me money and peace became leverage.",
+    name: "Mason C.",
+    role: "Capital",
+    sector: "capital",
   },
   {
-    quote: "Testimonial from a Bay Area founder — coming soon.",
+    quote:
+      "Pomaika’i changed my life and gave me an opportunity to not only pursue my passion but live it. Working toward turning my dreams into reality.",
+    name: "Elijah A.",
+    role: "Institute",
+    sector: "institute",
   },
   {
-    quote: "Testimonial from a Hilo-based service business — coming soon.",
-  },
-  {
-    quote: "Testimonial from a Pomaika'i Academy member — coming soon.",
-  },
-  {
-    quote: "Testimonial from a capital strategy client — coming soon.",
+    quote:
+      "Every build in this ecosystem shipped through JDLO. Pomaika’i brings the vision and the people. We make it real.",
+    name: "JDLO",
+    role: "Partner",
+    sector: "collective",
   },
 ];
+
+export function testimonialFor(sector: Testimonial["sector"]) {
+  return TESTIMONIALS.find((t) => t.sector === sector);
+}

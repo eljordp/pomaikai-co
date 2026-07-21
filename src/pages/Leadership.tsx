@@ -1,5 +1,6 @@
 import PageTransition from "../components/layout/PageTransition";
 import PageIntro from "../components/layout/PageIntro";
+import SectorQuote from "../components/layout/SectorQuote";
 import PillarList from "../components/layout/PillarList";
 import StepList from "../components/layout/StepList";
 import CtaBand from "../components/layout/CtaBand";
@@ -23,7 +24,10 @@ export default function Leadership() {
           </>
         }
         subtitle="Group sessions, 1:1, private calls, strategic guidance."
+        image={{ src: "/headers/leadership.jpg", alt: "Open plaza with people walking toward tree-lined avenues" }}
       />
+
+      <SectorQuote sector="leadership" />
 
       <PillarList
         eyebrow="Engage"

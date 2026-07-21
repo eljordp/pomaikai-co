@@ -5,9 +5,13 @@ type Props = {
   eyebrow: string;
   title: ReactNode;
   subtitle: string;
+  /** Full-bleed header photo below the intro text. Files live in /public/headers. */
+  image?: { src: string; alt: string };
+  /** Muted looping header video (used by Partnerships). Takes precedence over image. */
+  video?: string;
 };
 
-export default function PageIntro({ eyebrow, title, subtitle }: Props) {
+export default function PageIntro({ eyebrow, title, subtitle, image, video }: Props) {
   return (
     <section className="relative pt-40 md:pt-52 pb-24 md:pb-40 grain overflow-hidden">
       <div
@@ -44,6 +48,34 @@ export default function PageIntro({ eyebrow, title, subtitle }: Props) {
           {subtitle}
         </motion.p>
       </div>
+
+      {(video || image) && (
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.1, delay: 0.35, ease: [0.19, 1, 0.22, 1] }}
+          className="container-editorial relative mt-16 md:mt-24"
+        >
+          <div className="overflow-hidden">
+            {video ? (
+              <video
+                src={video}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-[46vh] md:h-[64vh] object-cover"
+              />
+            ) : (
+              <img
+                src={image!.src}
+                alt={image!.alt}
+                className="w-full h-[46vh] md:h-[64vh] object-cover"
+              />
+            )}
+          </div>
+        </motion.div>
+      )}
     </section>
   );
 }

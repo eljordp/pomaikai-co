@@ -1,5 +1,6 @@
 import PageTransition from "../components/layout/PageTransition";
 import PageIntro from "../components/layout/PageIntro";
+import SectorQuote from "../components/layout/SectorQuote";
 import PillarList from "../components/layout/PillarList";
 import CtaBand from "../components/layout/CtaBand";
 
@@ -18,7 +19,10 @@ export default function Collective() {
           </>
         }
         subtitle="Private advisory. Strategic partnerships. Deal flow. Investment opportunities. Immeasurable growth. Wealth architecture."
+        image={{ src: "/headers/collective.jpg", alt: "Riverfront promenade with a boat passing historic buildings" }}
       />
+
+      <SectorQuote sector="collective" />
 
       <PillarList
         eyebrow="Grow with us"

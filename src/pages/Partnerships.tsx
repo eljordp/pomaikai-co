@@ -62,6 +62,7 @@ export default function Partnerships() {
           </>
         }
         subtitle="Three tiers. One ecosystem. All customized."
+        video="/headers/partnerships.mp4"
       />
 
       {/* TIER ROWS */}

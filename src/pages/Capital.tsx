@@ -1,5 +1,6 @@
 import PageTransition from "../components/layout/PageTransition";
 import PageIntro from "../components/layout/PageIntro";
+import SectorQuote from "../components/layout/SectorQuote";
 import PillarList from "../components/layout/PillarList";
 import StepList from "../components/layout/StepList";
 import CtaBand from "../components/layout/CtaBand";
@@ -19,7 +20,10 @@ export default function Capital() {
           </>
         }
         subtitle="0% APR funding, business loans and LOCs, credit optimization, banking relationships, capital strategy, wealth architecture."
+        image={{ src: "/headers/capital.jpg", alt: "Formal gardens with a central fountain" }}
       />
+
+      <SectorQuote sector="capital" />
 
       {/* Working capital deployed — founder-side capital. */}
       <section className="py-24 md:py-32 border-t hairline">

@@ -1,5 +1,6 @@
 import PageTransition from "../components/layout/PageTransition";
 import PageIntro from "../components/layout/PageIntro";
+import SectorQuote from "../components/layout/SectorQuote";
 import PillarList from "../components/layout/PillarList";
 import CtaBand from "../components/layout/CtaBand";
 import PillBadge from "../components/layout/PillBadge";
@@ -37,7 +38,10 @@ export default function Institute() {
           </>
         }
         subtitle="Courses, workshops, templates, advisory, community. Everything necessary to support your growth."
+        image={{ src: "/headers/institute.jpg", alt: "Historic palace courtyard in black and white" }}
       />
+
+      <SectorQuote sector="institute" />
 
       {/* INTUITION INNER TEACHING — inner circle callout */}
       <section className="relative border-t hairline overflow-hidden">
