@@ -84,11 +84,21 @@ export default function TestimonialsBand() {
                 </p>
                 {(current.name || current.role) && (
                   <footer className="mt-8 md:mt-10 flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                    {current.name && (
-                      <cite className="not-italic text-[11px] uppercase tracking-[0.28em] text-cream/90">
-                        {current.name}
-                      </cite>
-                    )}
+                    {current.name &&
+                      (current.href ? (
+                        <a
+                          href={current.href}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          className="not-italic text-[11px] uppercase tracking-[0.28em] text-cream border-b border-cream/40 hover:border-cream transition-colors pb-0.5"
+                        >
+                          {current.name}
+                        </a>
+                      ) : (
+                        <cite className="not-italic text-[11px] uppercase tracking-[0.28em] text-cream/90">
+                          {current.name}
+                        </cite>
+                      ))}
                     {current.role && (
                       <span className="font-serif italic text-mist text-base md:text-lg">
                         {current.role}
@@ -99,20 +109,40 @@ export default function TestimonialsBand() {
               </motion.blockquote>
             </AnimatePresence>
 
-            {/* Progress dots — small, restrained */}
-            <div className="mt-12 md:mt-14 flex items-center gap-2">
-              {TESTIMONIALS.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setIndex(i)}
-                  aria-label={`Show testimonial ${i + 1}`}
-                  className={`h-px transition-all duration-500 ${
-                    i === index
-                      ? "w-10 bg-cream"
-                      : "w-6 bg-cream/25 hover:bg-cream/50"
-                  }`}
-                />
-              ))}
+            {/* Progress dots + arrows — small, restrained */}
+            <div className="mt-12 md:mt-14 flex items-center gap-5">
+              <button
+                onClick={() =>
+                  setIndex(
+                    (i) => (i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length,
+                  )
+                }
+                aria-label="Previous testimonial"
+                className="text-cream/50 hover:text-cream transition-colors text-lg leading-none"
+              >
+                &larr;
+              </button>
+              <div className="flex items-center gap-2">
+                {TESTIMONIALS.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setIndex(i)}
+                    aria-label={`Show testimonial ${i + 1}`}
+                    className={`h-px transition-all duration-500 ${
+                      i === index
+                        ? "w-10 bg-cream"
+                        : "w-6 bg-cream/25 hover:bg-cream/50"
+                    }`}
+                  />
+                ))}
+              </div>
+              <button
+                onClick={() => setIndex((i) => (i + 1) % TESTIMONIALS.length)}
+                aria-label="Next testimonial"
+                className="text-cream/50 hover:text-cream transition-colors text-lg leading-none"
+              >
+                &rarr;
+              </button>
             </div>
           </div>
         </div>

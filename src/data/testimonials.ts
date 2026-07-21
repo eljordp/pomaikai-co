@@ -1,16 +1,25 @@
 // Real quotes per Malachi iMessage 2026-07-20.
 // Waimea Lamb quote is Malachi's paraphrase of what the client tells him —
 // official version lands after his Thursday meeting. Swap it then.
-// JDLO quote drafted by Claude in JP's voice — JP to approve or rewrite.
+// JDLO leads the rotation per JP 2026-07-20; name links to jdlo.site.
 
 export type Testimonial = {
   quote: string;
   name?: string;
   role?: string;
+  href?: string;
   sector?: "growth" | "leadership" | "capital" | "institute" | "collective";
 };
 
 export const TESTIMONIALS: Testimonial[] = [
+  {
+    quote:
+      "Every site and system in this ecosystem came out of my hands. Pomaika’i brings the people and the vision, JDLO makes it real. Proof over promises.",
+    name: "JDLO",
+    role: "Partner",
+    href: "https://jdlo.site",
+    sector: "collective",
+  },
   {
     quote:
       "Beyond grateful and appreciative of Pomaika’i. The patience, clear communication, efficiency, and value provided are truly immeasurable. The growth has been conclusive.",
@@ -38,13 +47,6 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Elijah A.",
     role: "Institute",
     sector: "institute",
-  },
-  {
-    quote:
-      "Every build in this ecosystem shipped through JDLO. Pomaika’i brings the vision and the people. We make it real.",
-    name: "JDLO",
-    role: "Partner",
-    sector: "collective",
   },
 ];
 
