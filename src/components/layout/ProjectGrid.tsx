@@ -27,18 +27,14 @@ type Project = {
  * When it 404s the browser shows nothing — the gradient wash + serif name still reads.
  * Real screenshots should replace these before Malachi ships this to clients.
  */
-// Only projects delivered under the Pomaika'i brand. Do not add JDLO independent
-// freelance work. Ask JP before adding anything new.
-//
-// JDLO independent work (Ace Venen, Buehler Capital, Carusso Furniture, B. Pressed,
-// Meridian Fleet, Sticker Smith / TSS Print) was intentionally removed 2026-07-12
-// — those clients hired JP under JDLO, not Pomaika'i. Do not re-add.
-// Malachi confirmed 2026-07-15 VM: keep JDLO AI credit on sites JP built.
+// Pomaika'i-delivered work, plus one JDLO site — Malachi OK'd JP slotting his
+// own site 2026-07-20 (Aesthetics by Kayy pulled: client went her own way).
+// Ask JP before adding anything new.
 // Badge label "JDLO AI" → PillBadge renders as a link to jdlo.site so credit
 // is clickable, but the main tile still routes to the client's live site.
 const DEFAULT_PROJECTS: Project[] = [
   { name: "Waimea Lamb Co.", niche: "Agriculture · Storefront", href: "https://waimea-lamb-co.vercel.app", badge: "JDLO AI", image: "/portfolio/waimea-lamb.png" },
-  { name: "Aesthetics by Kayy", niche: "Beauty · Booking", href: "https://www.aestheticsbykayy.com", badge: "JDLO AI", image: "/portfolio/kayy.png" },
+  { name: "The Sticker Smith", niche: "Print · E-Commerce", href: "https://tssprint.com", badge: "JDLO AI", image: "/portfolio/tssprint.png" },
   { name: "Reese VIP", niche: "AI · Concierge", href: "https://reesvip.com", badge: "JDLO AI", image: "/portfolio/reesvip.png" },
 ];
 
