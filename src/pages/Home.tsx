@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import PageTransition from "../components/layout/PageTransition";
 import PillBadge from "../components/layout/PillBadge";
 import MetricsStrip from "../components/layout/MetricsStrip";
+import ProjectGrid from "../components/layout/ProjectGrid";
 import TestimonialsBand from "../components/layout/TestimonialsBand";
 
 type EcosystemTile = {
@@ -207,6 +208,27 @@ export default function Home() {
 
       {/* METRICS STRIP */}
       <MetricsStrip />
+
+      {/* VISUAL PROOF — three Pomaika'i-built partner sites right under the
+          numbers, per Malachi's VM 2026-07-20: "I want to see the sites." */}
+      <section className="py-32 md:py-44 border-t hairline">
+        <div className="container-editorial">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-14 mb-16 md:mb-24 items-end">
+            <div className="md:col-span-4">
+              <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-6">
+                The Proof
+              </p>
+            </div>
+            <div className="md:col-span-8">
+              <h2 className="font-serif text-display-md text-cream max-w-[20ch] text-balance leading-[1.02]">
+                Live sites. Real founders.{" "}
+                <span className="italic text-cream">See for yourself.</span>
+              </h2>
+            </div>
+          </div>
+          <ProjectGrid bare />
+        </div>
+      </section>
 
       {/* ECOSYSTEM CATEGORIES */}
       <section id="ecosystem" className="relative border-t hairline">

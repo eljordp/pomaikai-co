@@ -6,7 +6,7 @@ type Metric = { value: string; label: string };
  * Honest metrics only. No fabricated stats (no "217% ROI" nonsense).
  */
 const DEFAULT_METRICS: Metric[] = [
-  { value: "40+", label: "Sites Shipped" },
+  { value: "50+", label: "Sites Shipped" },
   { value: "Founder-Led", label: "Ecosystem" },
   { value: "Big Island", label: "Based" },
   { value: "1 Roof", label: "Every Lever" },
