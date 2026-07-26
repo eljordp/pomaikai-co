@@ -21,32 +21,19 @@ type Tier = {
 const TIERS: Tier[] = [
   {
     name: "Build.",
-    price: "$500 / month",
+    price: "$1,000 / month",
     tagline: "Build the foundation.",
-    body: "Perfect for businesses establishing their brand, digital presence, and growth strategy.",
+    body: "Perfect for businesses establishing their brand, digital presence, and growth strategy, then accelerating with real implementation.",
     includes: [
       "Strategy",
       "Branding",
       "Website Foundation",
       "Google Presence",
       "Social Media",
-      "Growth Roadmap",
-      "Institute Access",
-    ],
-  },
-  {
-    name: "Growth.",
-    price: "$1,000 / month",
-    tagline: "Build momentum.",
-    body: "For businesses ready to accelerate growth through consistent implementation and optimization.",
-    includes: [
-      "Everything in Build",
       "SEO",
       "AI Integration",
       "CRM & Automations",
-      "Content Strategy",
-      "Analytics & Reporting",
-      "Monthly Growth Planning",
+      "Institute Access",
     ],
   },
   {
@@ -55,7 +42,7 @@ const TIERS: Tier[] = [
     tagline: "Operate with consistency.",
     body: "A fully managed partnership focused on maintaining, improving, and optimizing every aspect of your business's growth engine.",
     includes: [
-      "Everything in Growth",
+      "Everything in Build",
       "Done-for-You Marketing",
       "Content Production",
       "Website Management",
@@ -93,7 +80,7 @@ export default function Partnerships() {
             Partnerships that <span className="italic text-cream">meet you</span> where you are.
           </>
         }
-        subtitle="Five tiers. One ecosystem. All customized."
+        subtitle="Three tiers. One ecosystem. All customized."
         video="/headers/partnerships.mp4"
       />
 
@@ -154,7 +141,7 @@ export default function Partnerships() {
               className="grid grid-cols-12 gap-6 md:gap-10 py-14 md:py-20 border-b hairline bg-obsidian/30"
             >
               <div className="col-span-2 md:col-span-1 pt-3">
-                <span className="font-serif italic text-mist text-lg">05</span>
+                <span className="font-serif italic text-mist text-lg">04</span>
               </div>
               <div className="col-span-10 md:col-span-4">
                 <h2 className="font-serif text-4xl md:text-6xl text-cream leading-[1.02] tracking-tight">
