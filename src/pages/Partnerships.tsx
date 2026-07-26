@@ -2,53 +2,85 @@ import PageTransition from "../components/layout/PageTransition";
 import PageIntro from "../components/layout/PageIntro";
 import CtaBand from "../components/layout/CtaBand";
 import { motion } from "framer-motion";
+import { Check } from "lucide-react";
 
 /**
- * PARTNERSHIPS — new page 2026-07-17.
- * Three tiers as hairline-divided editorial rows. Not a card grid.
+ * PARTNERSHIPS — five tiers per Malachi 2026-07-21 (was three).
+ * Copy verbatim from his Partnership Page text. Each paid tier carries an
+ * "Includes" list; Creative Finance Partner is application-only, no list.
  */
 
 type Tier = {
   name: string;
   price: string;
+  tagline: string;
   body: string;
-  best: string;
+  includes: string[];
 };
 
 const TIERS: Tier[] = [
   {
     name: "Build.",
-    price: "Starting at $500/month",
-    body: "Foundation. Strategic guidance. Essential growth systems. Ongoing support.",
-    best: "Founders establishing systems.",
+    price: "$500 / month",
+    tagline: "Build the foundation.",
+    body: "Perfect for businesses establishing their brand, digital presence, and growth strategy.",
+    includes: [
+      "Strategy",
+      "Branding",
+      "Website Foundation",
+      "Google Presence",
+      "Social Media",
+      "Growth Roadmap",
+      "Institute Access",
+    ],
   },
   {
-    name: "Grow.",
-    price: "Starting at $1,000/month",
-    body: "Momentum. Expanded strategy, implementation, and tools designed to create consistent momentum.",
-    best: "Founders past product-market fit.",
+    name: "Growth.",
+    price: "$1,000 / month",
+    tagline: "Build momentum.",
+    body: "For businesses ready to accelerate growth through consistent implementation and optimization.",
+    includes: [
+      "Everything in Build",
+      "SEO",
+      "AI Integration",
+      "CRM & Automations",
+      "Content Strategy",
+      "Analytics & Reporting",
+      "Monthly Growth Planning",
+    ],
   },
   {
-    name: "Scale.",
-    price: "Starting at $2,500/month",
-    body: "Scalable systems. Implementation, marketing, AI, and long-term business growth.",
-    best: "Founders scaling ops.",
+    name: "Maintain.",
+    price: "$2,500 / month",
+    tagline: "Operate with consistency.",
+    body: "A fully managed partnership focused on maintaining, improving, and optimizing every aspect of your business's growth engine.",
+    includes: [
+      "Everything in Growth",
+      "Done-for-You Marketing",
+      "Content Production",
+      "Website Management",
+      "AI Improvements",
+      "Systems Optimization",
+      "Priority Support",
+      "Weekly Strategy",
+    ],
   },
-];
-
-const SERVICES = [
-  "Business Strategy",
-  "Brand Development",
-  "Website Design",
-  "AI Integration",
-  "Content Creation",
-  "Marketing",
-  "SEO",
-  "CRM & Automation",
-  "Executive Coaching",
-  "Leadership Development",
-  "Strategic Advisory",
-  "Capital Guidance",
+  {
+    name: "Frequency.",
+    price: "$5,000 / month",
+    tagline: "Maximum momentum.",
+    body: "A high-frequency partnership designed for organizations committed to rapid execution, continuous optimization, and aggressive growth.",
+    includes: [
+      "Everything in Maintain",
+      "Multiple Content Days",
+      "Rapid Implementation",
+      "Advanced AI Systems",
+      "Executive Strategy",
+      "Priority Response",
+      "Custom Growth Initiatives",
+      "Dedicated Partnership",
+    ],
+  },
 ];
 
 export default function Partnerships() {
@@ -61,7 +93,7 @@ export default function Partnerships() {
             Partnerships that <span className="italic text-cream">meet you</span> where you are.
           </>
         }
-        subtitle="Three tiers. One ecosystem. All customized."
+        subtitle="Five tiers. One ecosystem. All customized."
         video="/headers/partnerships.mp4"
       />
 
@@ -90,42 +122,54 @@ export default function Partnerships() {
                   <p className="mt-4 text-[10px] uppercase tracking-[0.3em] text-bone/80">
                     {t.price}
                   </p>
+                  <p className="mt-6 font-serif italic text-cream/85 text-xl md:text-2xl">
+                    {t.tagline}
+                  </p>
                 </div>
-                <div className="col-span-12 md:col-span-6 md:col-start-7 flex flex-col justify-end gap-6">
+                <div className="col-span-12 md:col-span-6 md:col-start-7 flex flex-col justify-start gap-7">
                   <p className="text-mist text-lg leading-[1.55] max-w-[52ch] text-pretty">
                     {t.body}
                   </p>
-                  <p className="text-[10px] uppercase tracking-[0.28em] text-cream/60">
-                    Best for: <span className="text-cream/85">{t.best}</span>
-                  </p>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5">
+                    {t.includes.map((f) => (
+                      <li
+                        key={f}
+                        className="flex items-baseline gap-3 text-cream/85 text-[15px]"
+                      >
+                        <Check size={14} className="shrink-0 translate-y-0.5 text-bone/70" />
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </motion.article>
             ))}
 
-            {/* Creative Finance — separate, more premium framing */}
+            {/* Creative Finance Partner — application only, premium framing, no list */}
             <motion.article
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
-              className="grid grid-cols-12 gap-6 md:gap-10 py-14 md:py-20 border-b hairline"
+              className="grid grid-cols-12 gap-6 md:gap-10 py-14 md:py-20 border-b hairline bg-obsidian/30"
             >
               <div className="col-span-2 md:col-span-1 pt-3">
-                <span className="font-serif italic text-mist text-lg">04</span>
+                <span className="font-serif italic text-mist text-lg">05</span>
               </div>
               <div className="col-span-10 md:col-span-4">
                 <h2 className="font-serif text-4xl md:text-6xl text-cream leading-[1.02] tracking-tight">
-                  <span className="italic text-cream">Partner</span>
+                  <span className="italic text-cream">Creative Finance</span>
                 </h2>
                 <p className="mt-4 text-[10px] uppercase tracking-[0.3em] text-bone/80">
-                  Creative Finance · Application only
+                  Partner · Application only
                 </p>
               </div>
-              <div className="col-span-12 md:col-span-6 md:col-start-7 flex flex-col justify-end gap-6">
+              <div className="col-span-12 md:col-span-6 md:col-start-7 flex flex-col justify-start gap-6">
                 <p className="text-mist text-lg leading-[1.55] max-w-[52ch] text-pretty">
-                  A private advisory partnership for founders, executives, and
-                  organizations seeking strategic guidance, leadership
-                  development, capital planning, and long-term growth.
+                  Designed for founders and businesses with exceptional long-term
+                  potential. Qualified partners may receive creative financing,
+                  phased payments, equity partnerships, strategic investment, or
+                  other customized structures aligned with mutual growth.
                 </p>
               </div>
             </motion.article>
@@ -133,39 +177,25 @@ export default function Partnerships() {
         </div>
       </section>
 
-      {/* SERVICES BAND */}
+      {/* PHILOSOPHY BAND */}
       <section className="py-32 md:py-44 border-t hairline bg-obsidian">
         <div className="container-editorial">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-14 mb-14 md:mb-20 items-end">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-14 items-start">
             <div className="md:col-span-4">
               <p className="text-[10px] uppercase tracking-[0.35em] text-bone mb-6">
-                Every partnership is customized
+                Our Philosophy
               </p>
             </div>
             <div className="md:col-span-8">
-              <h2 className="font-serif text-display-md text-cream max-w-[22ch] text-balance leading-[1.02]">
-                May include.
-              </h2>
+              <p className="font-serif text-2xl md:text-4xl text-cream leading-[1.15] text-balance max-w-[30ch]">
+                Every partnership is customized to your goals and supported by the
+                Pōmaika&rsquo;i ecosystem.
+              </p>
+              <p className="mt-8 text-[10px] uppercase tracking-[0.3em] text-mist">
+                Growth · Leadership · Capital · Institute · Collective
+              </p>
             </div>
           </div>
-
-          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-4 md:gap-y-6 gap-x-10 border-t hairline pt-10">
-            {SERVICES.map((s, i) => (
-              <motion.li
-                key={s}
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.6, delay: i * 0.03, ease: [0.19, 1, 0.22, 1] }}
-                className="flex items-baseline gap-4 py-2 font-serif text-cream/85 text-lg md:text-xl"
-              >
-                <span className="font-serif italic text-mist text-sm w-6">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span>{s}</span>
-              </motion.li>
-            ))}
-          </ul>
         </div>
       </section>
 

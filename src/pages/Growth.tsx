@@ -106,35 +106,40 @@ export default function Growth() {
             </div>
             <div className="md:col-span-8">
               <h2 className="font-serif text-display-md text-cream max-w-[18ch] text-balance leading-[1.02]">
-                Three posts. One voice.
+                Post. Reel. <span className="italic text-cream">Story.</span>
               </h2>
             </div>
           </div>
 
-          {/* PLACEHOLDER: pass `image` prop when Malachi sends imagery. */}
+          {/* Post / Reel / Story per Malachi 2026-07-21. Drop real media into
+              /public/social — post.jpg (image), reel.mp4 (video), story.jpg (image).
+              Until a file exists the tile shows its serif fallback. */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             <IGTile
               index={0}
-              title="Real founders. Real sites."
-              caption="Built for the Hawai'i economy — one storefront at a time."
-              badge="Growth"
+              title="Post"
+              caption="Feed posts that carry the brand — clean, on-voice, built to stop the scroll."
+              badge="Post"
+              image="/social/post.jpg"
             />
             <IGTile
               index={1}
-              title="Ads that move."
-              caption="Local reach, ROAS you can point at."
-              badge="Ads"
+              title="Reel"
+              caption="Short-form video that moves — the story in motion."
+              badge="Reel"
+              video="/social/reel.mp4"
             />
             <IGTile
               index={2}
-              title="AI that saves hours."
-              caption="Chat, capture, book — automated."
-              badge="AI"
+              title="Story"
+              caption="Daily presence — the moments that keep the audience close."
+              badge="Story"
+              image="/social/story.jpg"
             />
           </div>
 
           <p className="mt-12 text-[10px] uppercase tracking-[0.3em] text-mist">
-            IG embeds landing soon · @pomaikaico
+            @pomaikaico
           </p>
         </div>
       </section>

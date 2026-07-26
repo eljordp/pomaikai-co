@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { Heart, MessageCircle, Send, Bookmark } from "lucide-react";
 import PillBadge from "./PillBadge";
 
@@ -11,12 +12,15 @@ type Props = {
   index?: number;
   /**
    * Optional real image URL. When passed, renders as `<img>` filling the
-   * 1:1 (mobile) / 4:5 (desktop) tile area. When omitted, falls back to
-   * the serif-title gradient tile.
-   *
-   * Pass `image` prop when Malachi sends per-section imagery.
+   * 1:1 (mobile) / 4:5 (desktop) tile area. If the file is missing (404),
+   * the tile gracefully falls back to the serif-title gradient.
    */
   image?: string;
+  /**
+   * Optional muted looping video URL (for Reel tiles). Takes precedence over
+   * `image`. Same graceful fallback if the file is missing.
+   */
+  video?: string;
 };
 
 /**
@@ -34,7 +38,12 @@ export default function IGTile({
   href,
   index = 0,
   image,
+  video,
 }: Props) {
+  // Missing media (file not uploaded yet) → drop back to the serif fallback
+  // instead of showing a broken-image icon.
+  const [mediaOk, setMediaOk] = useState(true);
+  const hasMedia = Boolean(video || image) && mediaOk;
   const Wrap = ({ children }: { children: React.ReactNode }) =>
     href ? (
       <a
@@ -75,14 +84,27 @@ export default function IGTile({
                 "linear-gradient(155deg, #1e1c17 0%, #33291f 45%, #1e1c17 100%)",
             }}
           >
-            {image ? (
-              // Real image mode — Malachi-supplied imagery fills the tile.
-              <img
-                src={image}
-                alt={title}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-[900ms] ease-editorial"
-              />
+            {hasMedia ? (
+              video ? (
+                <video
+                  src={video}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  onError={() => setMediaOk(false)}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-[900ms] ease-editorial"
+                />
+              ) : (
+                // Real image mode — supplied imagery fills the tile.
+                <img
+                  src={image}
+                  alt={title}
+                  loading="lazy"
+                  onError={() => setMediaOk(false)}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-[900ms] ease-editorial"
+                />
+              )
             ) : (
               // Serif-title fallback — clean, restrained, until real imagery lands.
               <div className="absolute inset-0 flex items-center justify-center px-8">

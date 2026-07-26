@@ -62,21 +62,26 @@ const TIERS: Tier[] = [
     body: "Build a strong foundation with strategic guidance, essential growth systems, and ongoing support.",
   },
   {
-    name: "Grow.",
+    name: "Growth.",
     price: "Starting at $1,000/month",
     body: "Accelerate your business with expanded strategy, implementation, and tools designed to create consistent momentum.",
   },
   {
-    name: "Scale.",
+    name: "Maintain.",
     price: "Starting at $2,500/month",
-    body: "A comprehensive partnership focused on scalable systems, implementation, marketing, AI, and long-term business growth.",
+    body: "Maintain momentum and optimize your growth through ongoing partnership and execution. Operational efficiency. Consistent execution.",
+  },
+  {
+    name: "Frequency.",
+    price: "Starting at $5,000/month",
+    body: "A high-frequency partnership for businesses committed to rapid growth and continuous innovation. Focused on scalable systems, implementation, marketing, AI, and long-term business growth.",
   },
 ];
 
 const PARTNER_GHOST: Tier = {
-  name: "Partner",
-  price: "Creative Finance · Private Advisory",
-  body: "A private advisory partnership for founders, executives, and organizations seeking strategic guidance, leadership development, capital planning, and long-term growth.",
+  name: "Creative Finance Partner",
+  price: "Application only",
+  body: "A private advisory partnership for qualified businesses with long-term growth potential.",
   ghost: true,
 };
 
@@ -153,7 +158,7 @@ export default function Home() {
                 transition={{ duration: 1, delay: 0.1, ease: [0.19, 1, 0.22, 1] }}
                 className="font-serif text-display-xl text-cream leading-[0.94] max-w-[16ch] text-balance"
               >
-                Built For <span className="italic text-cream">Hawai&rsquo;i.</span>
+                Built For <span className="italic text-cream">Growth.</span>
               </motion.h1>
 
               <motion.p
@@ -401,14 +406,14 @@ export default function Home() {
             </div>
             <div className="md:col-span-8">
               <h2 className="font-serif text-display-md text-cream max-w-[20ch] text-balance leading-[1.02]">
-                Three tiers.{" "}
+                Five tiers.{" "}
                 <span className="italic text-cream">Meet you where you are.</span>
               </h2>
             </div>
           </div>
 
-          {/* 3 vertical tier cards — IG-post-style tiles, side by side on desktop */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+          {/* 4 vertical tier cards — IG-post-style tiles, 2x2 on desktop */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
             {TIERS.map((t, i) => (
               <motion.article
                 key={t.name}
@@ -416,7 +421,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.75, delay: i * 0.08, ease: [0.19, 1, 0.22, 1] }}
-                className="group relative flex flex-col justify-between min-h-[420px] md:min-h-[520px] p-10 md:p-12 border hairline-strong bg-obsidian/20 hover:bg-obsidian/50 transition-colors duration-500"
+                className="group relative flex flex-col justify-between min-h-[360px] md:min-h-[440px] p-10 md:p-12 border hairline-strong bg-obsidian/20 hover:bg-obsidian/50 transition-colors duration-500"
               >
                 <div className="flex items-start justify-between">
                   <span className="font-serif italic text-mist text-base">
@@ -453,10 +458,10 @@ export default function Home() {
               className="grid grid-cols-12 gap-6 md:gap-10 py-12 md:py-20 border-b hairline"
             >
               <div className="col-span-2 md:col-span-1 pt-3">
-                <span className="font-serif italic text-mist text-lg">04</span>
+                <span className="font-serif italic text-mist text-lg">05</span>
               </div>
               <div className="col-span-10 md:col-span-4">
-                <h3 className="font-serif text-4xl md:text-6xl text-cream/70 leading-[1.02] tracking-tight italic">
+                <h3 className="font-serif text-4xl md:text-5xl text-cream/70 leading-[1.02] tracking-tight italic">
                   {PARTNER_GHOST.name}
                 </h3>
                 <p className="mt-4 text-[10px] uppercase tracking-[0.3em] text-bone/70">
