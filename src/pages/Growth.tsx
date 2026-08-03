@@ -134,7 +134,7 @@ export default function Growth() {
               title="Story"
               caption="Daily presence — the moments that keep the audience close."
               badge="Story"
-              image="/social/story.jpg"
+              video="/social/story.mp4"
             />
           </div>
 
