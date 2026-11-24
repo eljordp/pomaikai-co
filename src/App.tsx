@@ -12,6 +12,7 @@ import Institute from "./pages/Institute";
 import Collective from "./pages/Collective";
 import Partnerships from "./pages/Partnerships";
 import NotFound from "./pages/NotFound";
+import CrashCourse from "./pages/CrashCourse";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -23,6 +24,8 @@ function ScrollToTop() {
 
 function App() {
   const location = useLocation();
+  // The crash course is its own page, with its own header and no site footer.
+  if (location.pathname.replace(/\/+$/, "") === "/crash-course") return <CrashCourse />;
   return (
     <div className="min-h-screen flex flex-col bg-ink text-cream">
       <ScrollToTop />

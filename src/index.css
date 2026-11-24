@@ -93,3 +93,22 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #6b6558;
 }
+
+/* Crash course (/crash-course): default border colour inside the course,
+   and its page container. */
+@layer base {
+  .cc-root *,
+  .cc-root *::before,
+  .cc-root *::after {
+    border-color: rgb(44 42 38);
+  }
+}
+@layer components {
+  .cc-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}

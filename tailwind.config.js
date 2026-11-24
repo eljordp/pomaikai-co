@@ -16,10 +16,24 @@ export default {
         wheat: "#e8e2d3",
         wheatLight: "#f0ebe0",
         wheatDeep: "#a89f8f",
+        // Crash course (/crash-course). Same palette as the site, as named
+        // tokens so the course can use opacity steps like bg-cc-fg/10.
+        cc: {
+          bg: "rgb(10 10 10 / <alpha-value>)",
+          card: "rgb(17 17 16 / <alpha-value>)",
+          muted: "rgb(30 29 27 / <alpha-value>)",
+          line: "rgb(44 42 38 / <alpha-value>)",
+          fg: "rgb(240 235 224 / <alpha-value>)",
+          dim: "rgb(168 159 143 / <alpha-value>)",
+          ring: "rgb(168 159 143 / <alpha-value>)",
+          bad: "rgb(186 44 44 / <alpha-value>)",
+          "bad-fg": "rgb(255 255 255 / <alpha-value>)",
+        },
       },
       fontFamily: {
         serif: ['"Instrument Serif"', 'ui-serif', 'Georgia', 'serif'],
         sans: ['"Inter Tight Variable"', '"Inter Tight"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        "cc-display": ['"Instrument Serif"', 'ui-serif', 'Georgia', 'serif'],
       },
       letterSpacing: {
         tightest: "-0.04em",
