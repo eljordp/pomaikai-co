@@ -142,7 +142,7 @@ export default function CrashCourse() {
     <div className="cc-root min-h-screen bg-cc-bg text-cc-fg overflow-x-hidden">
       <header className="border-b border-cc-line/70 backdrop-blur-sm">
         <div className="cc-container max-w-5xl flex items-center justify-between py-3">
-          <Link to="/" className="flex items-center gap-3" aria-label="Pōmaika'i home">
+          <Link to="/" reloadDocument className="flex items-center gap-3" aria-label="Pōmaika'i home">
             <img src={logo} alt="Pōmaika'i" className="h-10 md:h-12 w-auto" />
           </Link>
           <div className="flex items-center gap-3">

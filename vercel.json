@@ -1,3 +1,17 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  "headers": [
+    {
+      "source": "/crash-course/:path*",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
+    {
+      "source": "/crash-course/",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    }
+  ],
+  "rewrites": [
+    { "source": "/crash-course", "destination": "/crash-course.html" },
+    { "source": "/crash-course/", "destination": "/crash-course.html" },
+    { "source": "/(.*)", "destination": "/" }
+  ]
 }
